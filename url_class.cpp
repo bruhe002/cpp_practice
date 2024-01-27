@@ -27,3 +27,14 @@ private:
     string resource;
 };
 
+int main() {
+    // Testing URL class
+    // Make string variables
+    string protocol = "http";
+    string resource = "www.youtube.com";
+    // Instantiate an object
+    Url test_addr(protocol, resource);
+
+    // Test method
+    test_addr.displayUrl();
+}
