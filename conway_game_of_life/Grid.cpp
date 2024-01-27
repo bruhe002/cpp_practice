@@ -62,6 +62,7 @@ bool Grid::will_survive(int row, int col) {
     // x x x
     int neighbors = cells[row-1][col-1].is_alive() +
                     cells[row-1][col].is_alive() +
+                    cells[row-1][col+1].is_alive() +
                     cells[row][col-1].is_alive() +
                     cells[row][col+1].is_alive() +
                     cells[row+1][col-1].is_alive() +
@@ -74,6 +75,36 @@ bool Grid::will_survive(int row, int col) {
     }
 
     // If we get here, the cell has survived
+    return true;
+}
+
+// Will a cell be born in the next generation?
+bool Grid::will_create(int row, int col) {
+    if (cells[row][col].is_alive()) {
+        // There is already a cell at this position!
+        return false;
+    }
+
+    // Find the number of parents for this cell
+    //
+    // x x x
+    // x o x
+    // x x x
+    int parents = cells[row-1][col-1].is_alive() +
+                    cells[row-1][col].is_alive() +
+                    cells[row-1][col+1].is_alive() +
+                    cells[row][col-1].is_alive() +
+                    cells[row][col+1].is_alive() +
+                    cells[row+1][col-1].is_alive() +
+                    cells[row+1][col].is_alive() +
+                    cells[row+1][col+1].is_alive();
+
+    if (parents < min_parents || parents > max_parents) {
+        // Cannot create cell here
+        return false;
+    }
+
+    // If we get here, the new cell is born
     return true;
 }
 
