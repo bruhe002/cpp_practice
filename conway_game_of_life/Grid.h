@@ -4,8 +4,6 @@
 // Author: Eric Bruhns
 //
 ///////////////////////////////////////////////////
-
-
 #ifndef GRID_H_
 #define GRID_H_
 
