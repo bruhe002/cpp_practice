@@ -11,7 +11,10 @@
 // #include "ansi_escapes.h"
 
 int main(int argc, char *argv[]) {
-    std::cout << " Conwat's game of Life\n";
+    // Clear screen
+    system("CLS");
+
+    std::cout << " Conway's game of Life\n";
     std::cout << "Press the return key to display each generation\n";
 
     // Wait for user to press the return key
