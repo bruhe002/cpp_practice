@@ -13,7 +13,7 @@
 
 #include "Cell.h"
 
-class grid {
+class Grid {
     // Cells on screen.
     // We have a border consisting of inactive cells
     // These are used in the calculation for the next generation of cells,
@@ -36,11 +36,11 @@ public:
     bool will_create(int row, int col);
 
     // Update to the next generation
-    void update(const grid& next);
+    void update(const Grid& next);
 };
 
 // Non-member function
 // Calculate which cells survive to the next generation and which are born
-void calculate(grid& old_gen, grid& new_gen);
+void calculate(Grid& old_gen, Grid& new_gen);
 
 #endif // GRID_H_
