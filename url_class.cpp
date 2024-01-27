@@ -37,4 +37,6 @@ int main() {
 
     // Test method
     test_addr.displayUrl();
+
+    return 0;
 }
