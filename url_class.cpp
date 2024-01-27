@@ -14,9 +14,9 @@ using namespace std;
 class Url {
 
 public:
-    Url(string& protoc, string& res) {
-        this->protocol = protoc;
-        this->resource = res;
+    Url(string& protocol, string& resource) {
+        this->protocol = protocol;
+        this->resource = resource;
     }
 
     void displayUrl() {
