@@ -5,6 +5,7 @@
 //
 ///////////////////////////////////////////////////
 
+#include <iostream>
 #include <string>
 #include <cctype>
 
@@ -27,4 +28,14 @@ std::string exclaim(std::string& old_str) {
     }
 
     return old_str;
+}
+
+int main() {
+
+    // Create a string
+    std::string s = "I came, I saw, I conquered...";
+
+    std::cout << exclaim(s) << std::endl;
+
+    return 0;
 }
