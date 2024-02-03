@@ -109,3 +109,27 @@ while (ifile >> text)
     - yes there is a `right` manipulator
 
 `setfill()` manipulator sets padding to a specific character
+
+## Floating-point Output Formats
+- default, fp numbers will be output to 6 significant figures
+- sometimes followed by an exponent
+
+`scientific` manipulator forces the stream to use scientific notation
+    - sticky - will maintain their behavior throughout the program
+    - to reset use the mainpulator `defaultfloat`
+
+`setprecision(#)` manipulator sets the precision of a stream
+
+## Stringstreams
+- basic c++ stream is represented by std::ios
+- stringstreams are defined in `<sstream>`
+    - it is a wrapper around std::string that makes it look like a stream
+    - `ostringstream` contains an empty string object
+        - store data in this string, use str() function to return a copy of it
+```
+string to_string(int i) {
+    ostringstream os;
+    os << i;
+    return os.str();
+}
+```
