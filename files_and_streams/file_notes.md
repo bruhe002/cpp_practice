@@ -140,4 +140,4 @@ string to_string(int i) {
     - bind the string object to an istringstream
 
 - ostringstreams are useful when interfacing to systems that expect strings in a particular format
-- stringstreams can be used with getline() to process input more easily
+- istringstreams can be used with getline() to process input more easily
