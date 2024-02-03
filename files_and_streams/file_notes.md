@@ -68,8 +68,13 @@ while (ifile >> text)
 
 ## File Nodes
 - c++ has a number of options for opening a file - called "modes"
-    - files are opened by default in text mode
-    - output files are opened by default in truncate mode
+    - files are opened by default in **text mode**
+    - output files are opened by default in **truncate mode**
         - new data will overwrite current contents of the file
-    - append mode does not do ^^ that `ofile.open("important.txt", fstream::app)`
+    - **append mode** does not do ^^ that `ofile.open("important.txt", fstream::app)`
         - adds new content to end of old data
+    - **binary mode** - data sotred in file will be identical to the data in memory
+        - complicated
+        - lowlevel
+        - needed to work with file formats
+- can combine different modes by using vertical line '|'
