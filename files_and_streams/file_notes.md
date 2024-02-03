@@ -1,4 +1,5 @@
-##FILES AND STREAMS##
+## FILES AND STREAMS
+    
     - In c++ a file is represented by a sequence of bytes with a filename
 
     - File interactions are represented byy fstream objects
