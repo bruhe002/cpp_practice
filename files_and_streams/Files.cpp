@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <string>
 #include <sstream>
+#include <vector>
 
 // Implement struct necessary
 struct language {
@@ -17,6 +18,13 @@ struct language {
     std::string designer;
     int date;
 };
+
+std::string to_string(const language& l) {
+    std::ostringstream oss;
+    oss << l.lang << ", " << l.designer << ", " << l.date << std::endl;
+
+    return oss.str();     
+}
 
 const std::string FILENAME = "languages.txt";
 
@@ -31,6 +39,7 @@ int main() {
     }
 
     std::string line;
+    std::vector<language> vect;
     // Loop through the lines of the file
     while(std::getline(ifile, line)) {
         std::istringstream iss(line);
@@ -53,6 +62,19 @@ int main() {
                     iss >> date;
                     l.date = date;
             }
+
+            count++;
         }
+
+        // push language to vector
+        vect.push_back(l);
+    }
+
+    // Close file 
+    ifile.close();
+
+    // Print the vector
+    for (auto l : vect) {
+        std::cout << to_string(l);
     }
 }
