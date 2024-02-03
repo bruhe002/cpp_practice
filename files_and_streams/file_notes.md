@@ -82,9 +82,13 @@ while (ifile >> text)
 ## Stream Member functions and States
 `open()` - binds file name to a stream after it has been declared
     - if file does not exist it will be created
+
 `is_open()` checks if the stream is opened
+
 `good()`, `fail()`, `bad()` checks the files state
+
 **NOTE** input streams do not support flush
+    
     - it does have an `ignore()` member function
     - 2 arguments
         - the maximum number of characters to remove
@@ -97,8 +101,11 @@ while (ifile >> text)
     - `boolalpha` is a manipulator that prints True and False 
         `cout << boolalpha << 9 == 10;`
 - be default output streams do not format data
+
 `setw()` is a manipulator 
     - will pad the output field to make it the width of the argument
+
 `left` manipulator will make the output left-justified
     - yes there is a `right` manipulator
+
 `setfill()` manipulator sets padding to a specific character
