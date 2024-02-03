@@ -88,8 +88,7 @@ while (ifile >> text)
 `good()`, `fail()`, `bad()` checks the files state
 
 **NOTE** input streams do not support flush
-    
-    - it does have an `ignore()` member function
+- it does have an `ignore()` member function
     - 2 arguments
         - the maximum number of characters to remove
         - a delimiter character
@@ -115,7 +114,7 @@ while (ifile >> text)
 - sometimes followed by an exponent
 
 `scientific` manipulator forces the stream to use scientific notation
-    - sticky - will maintain their behavior throughout the program
+- sticky - will maintain their behavior throughout the program
     - to reset use the mainpulator `defaultfloat`
 
 `setprecision(#)` manipulator sets the precision of a stream
