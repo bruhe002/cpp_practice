@@ -11,6 +11,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <limits>
 
 // Implement struct necessary
 struct language {
@@ -26,11 +27,9 @@ std::string to_string(const language& l) {
     return oss.str();     
 }
 
-const std::string FILENAME = "languages.txt";
-
 int main() {
     // Read data from the languages.txt
-    std::ifstream ifile{FILENAME};
+    std::ifstream ifile{"languages.txt"};
 
     // Check if opened properly
     if (!ifile) {
@@ -43,24 +42,25 @@ int main() {
     // Loop through the lines of the file
     while(std::getline(ifile, line)) {
         std::istringstream iss(line);
-
         // Add words to struct
         int count = 0;
         language l;
-        while(iss) {
-            std::string word;
-            int date;
+        std::string word;
+        int date;
+        while(!iss.eof()) {
             switch(count) {
                 case 0:
                     iss >> word;
                     l.lang = word;
                     break;
                 case 1:
+                    iss >> word;
                     l.designer = word;
                     break;
                 case 2:
                     iss >> date;
                     l.date = date;
+                    break;
             }
 
             count++;
