@@ -132,3 +132,12 @@ string to_string(int i) {
     return os.str();
 }
 ```
+
+- `istringstream` object uses copy of existing string
+    - can read data from the string
+    - validate input data
+    - handle errors
+    - bind the string object to an istringstream
+
+- ostringstreams are useful when interfacing to systems that expect strings in a particular format
+- stringstreams can be used with getline() to process input more easily
