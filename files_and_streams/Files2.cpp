@@ -45,7 +45,7 @@ int main() {
         std::istringstream iss(line);
         language l;
         // Lets go over the words one at a time
-        while(iss) {
+        while(!iss.eof()) {
             
             // First, the language name
             std::string lang;
@@ -58,17 +58,19 @@ int main() {
             // an oss until we reach a number
             // that will be the date
             std::ostringstream out;
+            char c;
             while(!std::isdigit(iss.peek())) {
-                out << iss.get();
+                iss.get(c);
+                if(!(c == ' ' && std::isdigit(iss.peek())))
+                    out << c;
             }
 
             // Insert oss string into language designer
             l.designer = out.str();
-
             // Third read the integer
             int date;
             iss >> date;
-
+            // iss.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); 
             l.date = date;
 
         }
