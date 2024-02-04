@@ -141,3 +141,86 @@ string to_string(int i) {
 
 - ostringstreams are useful when interfacing to systems that expect strings in a particular format
 - istringstreams can be used with getline() to process input more easily
+
+## Resource Management
+- resources are used 
+    - they need to be managed
+        - allocate
+        - release
+        - error handling
+- stdlib has some classes which manage resources
+- fstream class encapsulates the details of how to manage a file
+    - all we need to do is give a name
+    - use << & >> operators
+    - close files
+- C++ classes manage resources through an idiom RAII - Resource Aquisition Is Initialization
+    - The resource is stored as a private member variable
+    - class constructor acquires the resource
+    - public member functions control access to resource
+    - class destructor releases the resource
+- This is straightforward and deterministic
+- only one object has access to the resource
+
+## Random access to streams
+- streams have a position marker
+    - keeps track of where the next read or write data will take place
+    - seek member functions can change the position of the marker
+        - ex: seekg()
+    - tell member functions can tgell you the position of the marker
+        - ex: tellg()
+- `std::ios_base` provides three global position markers
+    - `::beg`, `::cur`, `::end`
+- you can utilize these as a way to save your marker
+
+## Stream iterators
+- stdlib provides iterators that work on streams
+    - all data in the stream must be the same type
+    - in the `<iterator>` library
+- very limited interface
+- `ostream_iterator` must be bound to an output stream
+```
+ostream_iterator<int> oi (cout, "\n");
+
+for (int i = -; i < 10; i++) {
+    *oi = i;
+    oi++;           // Does NOTHING
+}
+```
+- istream iter works the same way
+    - to read multiple input, you must loop
+    - to stop reading, compare with an empty iterator
+    
+    `istream__iterator<string> eof;`
+
+## Binary Files
+- use binary mode to work with binary files
+- shift operators are not suitable
+- always use write() and read() with binary files
+- file format has structure (.jpg .zip)
+    - like headers and stuff
+- best way to work with binary file is to create a struct whose data members correspond to the fields in the file format
+- calls look like this
+
+```
+ofile.write(reinterpret_cast<char *>(&p), sizeof(point));
+```
+
+- modern hardware is optimized to be word aligned
+    - in a 32-bit system, addresses are placed in multiples of four
+- if a struct is not word aligned, compilers will usually add extra bytes
+    - known as padding bytes
+- `#pragma` directive will allow us to not follow modern alignment
+- `alignas` keyword (C++11)
+    - force compiler to align an element at a given offset
+
+```
+struct point {
+    char c;
+    alignas(4) int32_t x;       // Use 4 byte alignment for x
+}
+```
+
+- bitmap is a simple image format
+- image is made up of pixels
+    - in bitmap format, each pixel consists of three bytes
+    - one for each primary color
