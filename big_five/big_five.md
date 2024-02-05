@@ -133,3 +133,6 @@ public:
     - e.g. string concatenation
 - binary operators which require a type conversion argument should be non-member functions
     - input and output operators should be non member as well
+- prefix operator returns a reference
+- postfix operator returns by value
+    - save original in a temp
