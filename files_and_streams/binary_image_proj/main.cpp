@@ -52,7 +52,7 @@ int main() {
             bmp.set_pixel(x, y, cyan);
         }
     }
-    for (int x = x_mid + 3*x_unit/2; x < x_mid + x_unit/2; ++x) {
+    for (int x = x_mid + 3*x_unit/2; x < x_mid + 5*x_unit/2; ++x) {
         for(int y = 3*y_unit; y < 5 * y_unit; ++y) {
             bmp.set_pixel(x, y, cyan);
         }
