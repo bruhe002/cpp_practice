@@ -22,7 +22,7 @@ void print_vect(const vector<int>& v) {
 int main() {
 
     // First part of the assignment
-    vector<int> num_vect = {1,2,3,4,5};
+    vector<int> num_vect = {5, 2, 8, 3, 1};
 
     print_vect(num_vect);
 
