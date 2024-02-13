@@ -48,3 +48,10 @@
 ```
     [](int n) {return (n % 2 ==1);}  // Return typed deduced as bool
 ```
+
+- if we want to specify a return type we need to specify the following
+```
+    [](int n) -> bool {
+        ...
+    }
+```
