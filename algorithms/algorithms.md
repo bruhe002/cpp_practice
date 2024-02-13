@@ -28,3 +28,23 @@
     - known as a "predicate"
 - these algs allow us to supply our own predicates
     - ex - sort() function
+
+
+##  Algorithms with _if versions
+- algs come in two versions
+    - base version
+    - an _if() version which takes a predicate argument
+        - ex - find_if()
+
+
+## Lambda Expressions
+- writing a predicate function within the function call
+- Modern c++ has lambda expressions
+    - anonymous "local" functions
+    - compiler will issue it a unique name
+    - defined inline
+- use `[]` as function name
+    - write function the normal way
+```
+    [](int n) {return (n % 2 ==1);}  // Return typed deduced as bool
+```
