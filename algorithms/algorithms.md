@@ -55,3 +55,11 @@
         ...
     }
 ```
+
+- Some functions take a lambda function as an argument
+    - it will perform the operation of the lambda within the function
+
+```
+    equal(cbegin(lhs), cend(lhs), cbegin(rhs), cend(rhs),
+        [](char lc, char rc) { return toupper(lc) == toupper(rc);});
+```
