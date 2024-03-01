@@ -91,3 +91,16 @@
     - considered bad practice
 - lambda functions in member functions are allowed to capture "this"
     - use \[this\], NOT \[=this\] or \[&this\]
+- lambda expressions are mainly used for implementing temp functions
+    - considered "first class objects"
+    - we can store them in variables and pass to a function
+    - best to use 'auto' as data type
+    - we can return lambda expression froma a function
+- "partial evaluation"
+    - data is processed in stages
+    - reduces computation
+    - makes processing simpler
+    - many applications in AI, database queries scientific computing etc
+    - we can use lambda expressions with capture to implement partial evaluation
+- returning a reference to a local variable is dangerous
+    - variable will be destroyed when scope ends
