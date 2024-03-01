@@ -104,3 +104,27 @@
     - we can use lambda expressions with capture to implement partial evaluation
 - returning a reference to a local variable is dangerous
     - variable will be destroyed when scope ends
+
+## Pair Type
+- defined in '<utility>' library
+- has two public data members
+    - first
+    - second
+- pairs can be used to return two related values
+- a templated type
+- need to specify the type of both members
+    - `pair<int, int>`
+- use "make_pair() to create a pair variable
+
+## Insert Iterators
+- an insert iterator inserts new elements to a container
+- three types of iterator
+    - back_inserter() returns a back_insert_iterator
+        - adds new element to back of container
+        - calls push_back()
+    - front_inserter() returns a front_insert_iterator
+        - adds new element to front of container
+        - calls push_front()
+    - inserter() returns a insert_iterator
+        - takes a second argument: positional iterator
+        - return value is an insert_iterator for the container
