@@ -63,3 +63,31 @@
     equal(cbegin(lhs), cend(lhs), cbegin(rhs), cend(rhs),
         [](char lc, char rc) { return toupper(lc) == toupper(rc);});
 ```
+
+- lambda has access to non-local variables
+    - local variables must be references and initialized as a constant expression
+    - can read but not modify these variables
+- has access to static variables in the same scope
+- lambda expressions can "capture" local variables
+    - you put the variables inside the brackets
+```
+
+    int n{5};
+    auto res = find_if(cbegin(words), cend(words),
+        [n](const string& s) { return str.size() > n; });
+```
+- lambda with capture is implemented as a "functor with state"
+    - has a private data member variable
+    - captured variable is passed by value
+    - cannot be modified
+- to change a captured variable, we need to capture it by reference
+
+`[&n](int arg) { return arg * n;}`
+
+- we can make a lambda function capture all variables in a scope
+    - \[=\] will capture all vars by value
+    - \[&\] will capture all vars by reference
+    - this can make tracking variables difficult to maintain
+    - considered bad practice
+- lambda functions in member functions are allowed to capture "this"
+    - use \[this\], NOT \[=this\] or \[&this\]
