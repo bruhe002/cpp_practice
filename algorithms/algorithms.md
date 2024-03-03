@@ -128,3 +128,13 @@
     - inserter() returns a insert_iterator
         - takes a second argument: positional iterator
         - return value is an insert_iterator for the container
+
+## Searching Algorithms
+- std::string has member function "find_first_of()"
+    - there is a generic function, std::find_first_of()
+- "adjacent_find()" looks for two neighboring elements that have the same value
+    - returns an iterator of the first element match
+- std::search_n() looks for a sequence of n successive elements that have the same given value
+- search() looks for an occurrence of the second iterator range
+- mismathc() takes two iterator ranges and looks for differences between the two ranges
+    - returns a pair to each element
