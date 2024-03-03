@@ -136,5 +136,8 @@
     - returns an iterator of the first element match
 - std::search_n() looks for a sequence of n successive elements that have the same given value
 - search() looks for an occurrence of the second iterator range
-- mismathc() takes two iterator ranges and looks for differences between the two ranges
+- mismatch() takes two iterator ranges and looks for differences between the two ranges
     - returns a pair to each element
+- all_of() is also a function -> look it up
+- binary_search() is similar to find()
+    - much faster
