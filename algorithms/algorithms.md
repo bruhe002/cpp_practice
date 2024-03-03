@@ -141,3 +141,14 @@
 - all_of() is also a function -> look it up
 - binary_search() is similar to find()
     - much faster
+
+## Numeric algorithms
+- iota(): populates an iterator range with values that successively increase by 1
+    - takes an iterator range and a starting value
+- accumulate() returns the sum of the elements in a given range
+    - default the operation is addition
+    - we could pass a callable object to operate
+    - algorithm is sequential 
+    - cannot be parallelized
+- reduce() is an alternative implementation of std::accumulate() which is compatible with
+parallel execution
