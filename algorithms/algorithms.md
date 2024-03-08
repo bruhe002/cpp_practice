@@ -152,3 +152,14 @@
     - cannot be parallelized
 - reduce() is an alternative implementation of std::accumulate() which is compatible with
 parallel execution
+
+## Write-only Algorithms
+- write to an iterator range, but can not read them
+- fill()
+- fill_n()
+    - these functions are dangerous since they don't check vector size
+    - use blocks to protect from a crash
+- swap()
+- generate()
+- generate_n()
+- look these ups
