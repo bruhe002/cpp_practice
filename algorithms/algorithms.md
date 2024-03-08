@@ -225,3 +225,10 @@ transform(begin(vec), end(vec), begin(vec), ...)
 - set_union() combines two sorted iterator ranges
     - destination will contain elements in both containers but only once
 
+## Reordiering algorithms
+- re-arranges elemnts inside an iterator range
+- does not change value
+- reverse() takes the elements in an iterator range and reverses their order
+- rotate() rotates elements around a pivot
+
+## Partitioning Algorithms
