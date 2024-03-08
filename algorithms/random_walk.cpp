@@ -1,5 +1,5 @@
 ///////////////////////////////////////////////////
-// @palindrome_checker.cpp
+// @random_walk.cpp
 //
 // Author: Eric Bruhns
 //
