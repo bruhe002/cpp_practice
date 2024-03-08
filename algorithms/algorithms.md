@@ -163,3 +163,12 @@ parallel execution
 - generate()
 - generate_n()
 - look these ups
+
+## For-each Algorithm
+- for_each() calls a function on every element in an iterator range
+    - function can take elements by reference allowing us to change elements
+    - usually better to write a range-for loop now
+    - shorter and clearer
+    - can use break and return statements
+    - for_each can be applied to a sub-range of elements
+    - single path through code makes it easier to optimize
