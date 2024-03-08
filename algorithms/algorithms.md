@@ -186,3 +186,14 @@ parallel execution
     - algs which change the elements have two versions
     - writes data to a different iterator
     - ex: replace_copy(), replace_copy_if() 
+
+## Removing Algorithms
+- remove elements from a container
+    - removed "logically"
+    - still physically present in the range
+- range()
+    - the removed element is moved to the back of the container
+    - value is no longer defined
+    - size will stay the same
+- erase()
+    - physically removes elements
