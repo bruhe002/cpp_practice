@@ -197,3 +197,22 @@ parallel execution
     - size will stay the same
 - erase()
     - physically removes elements
+- remove_if() takes a predicate
+- _copy() versions write to a destination
+- unique(): deletes duplicate elements
+    - could also take a predicate
+
+## Transform Algorithms
+- will call a given function on every element in the range
+    - result is copied into a destination
+- transform() performs a transformation between two vectors
+- in_place transformation
+    - destination iterator is allowed to overlap the source
+    - allows us to do an inplace transformation
+
+```
+transform(begin(vec), end(vec), begin(vec), ...)
+```
+
+- transform is overloaded
+    - takes a second iterator range
