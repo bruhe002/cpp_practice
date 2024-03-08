@@ -240,3 +240,12 @@ transform(begin(vec), end(vec), begin(vec), ...)
 - partition() takes an iterator ranges and a predicate function
 - stable_partition() elements within a group will keep their relative order
 - partition_point() can be used to find a partition point of a partitioned container
+
+## Sorting algorithms
+- puts elements in a range in a order
+- usually implements "quick sort"
+- sort()
+    - can supply a predicate function as an optional argument
+- is_sorted_until() returns an iterator to the first element which is not in order
+- partial_sort() sorts a subrange of the container
+    - takes an extra iterator which uses the offset to know what to sort
