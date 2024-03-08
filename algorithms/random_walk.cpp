@@ -7,7 +7,4 @@
 
 #include <iostream>
 
-int main() {
-
-    return 0;
-}
+// Come back after you learn SFML Graphics!!
