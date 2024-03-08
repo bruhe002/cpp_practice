@@ -172,3 +172,10 @@ parallel execution
     - can use break and return statements
     - for_each can be applied to a sub-range of elements
     - single path through code makes it easier to optimize
+
+## Copying Algorithms
+- copy elements into another range
+- copy() is most basic
+- copy_if() copies elements in which a predicate is true
+
+## Write Algorithms
