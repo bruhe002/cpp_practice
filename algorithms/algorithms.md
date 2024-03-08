@@ -179,3 +179,10 @@ parallel execution
 - copy_if() copies elements in which a predicate is true
 
 ## Write Algorithms
+- changes elements in an iterator range
+- replace() changes elements with a given value to another value
+- replace_if() changes all elements for which a predicate returns true
+- _copy() versions of algorithms
+    - algs which change the elements have two versions
+    - writes data to a different iterator
+    - ex: replace_copy(), replace_copy_if() 
