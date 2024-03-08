@@ -285,4 +285,34 @@ that would be in that position if the range was sorted
     - can be overloaded by providing different binary functions instead of the default + and *
         - replace * with "transform" method
         - replace + with "accumulate" method
+
+## Random Numbers
+- software is deterministic so it cannot produce TRUE random numbers
+- we can use pseudorandom numbers
+    - initialize a PRNG we use a number called a "seed"
+- rand() is inherited from C and declared in <cstdlib>
+    - a little arithmetic we can get a random number of a certain range
+    - to seed generator used by rand(), we call srand()
+        - traditionally, programmers use the current time to seed the generator
+- Modern C++ random numbers
+    - introduces classes defined in <random>
+    - "random number engine" is implemented as a functor
+        - default_random_engine
+        - mt19937
+            - very fast at generating numbers
+            - almost crypto secure
+            - slow to initialize
+    - "distribution" is also implemented as a functor
+        - takes the range as arguments
+        - good for statistic functions
+        - Bernoulli, Normal, Poisson
+    - random_device produceds hardware-generated random number from system entropy data
+        - much slower than mt19937 but is crypto secure if fully implemented
+    - best to use mt19937 as your random number engine
+- Random Number algorithms
+    - shuffle() rearranges an iterator range in a random order
+    - takes a random number engine as an argument to randomize the shuffle
+    - std::bernoulli_distribution
+        - rescales a sequence of numbers into boolean values
+
  
