@@ -232,3 +232,11 @@ transform(begin(vec), end(vec), begin(vec), ...)
 - rotate() rotates elements around a pivot
 
 ## Partitioning Algorithms
+- we can partition the elements ina container into two groups
+    - elements with a given property are at the front
+    - elements without it are sent to the back
+- can be useful
+    - drop down menus
+- partition() takes an iterator ranges and a predicate function
+- stable_partition() elements within a group will keep their relative order
+- partition_point() can be used to find a partition point of a partitioned container
