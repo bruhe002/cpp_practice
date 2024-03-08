@@ -216,3 +216,12 @@ transform(begin(vec), end(vec), begin(vec), ...)
 
 - transform is overloaded
     - takes a second iterator range
+
+## Merging Algorithms
+- take iterator ranges, assuming they are sorted, and takes the elements and writes them to a destination
+- merge() combines two sorted iterator ranges into a destination
+- set_intersection() combines two sorted iterator ranges into a destination
+    - destination will only contain elements contained in both ranges
+- set_union() combines two sorted iterator ranges
+    - destination will contain elements in both containers but only once
+
