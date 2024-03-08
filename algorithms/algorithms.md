@@ -249,3 +249,40 @@ transform(begin(vec), end(vec), begin(vec), ...)
 - is_sorted_until() returns an iterator to the first element which is not in order
 - partial_sort() sorts a subrange of the container
     - takes an extra iterator which uses the offset to know what to sort
+- nth_element() rearranges the elements so that the iterator points to the element 
+that would be in that position if the range was sorted
+
+## Permutations
+- possible arrangement of elements of a specific set or range
+- a set of every possible arrangement of elements
+- next_permutation() takes an iterator range
+    - reorders the elements to give the next permutation in ascending order
+    - returns a bool depending on whether there is a next permutation
+    - uses < operator by default but can be passed a predicate
+- prev_permutation() gives the previous permutation
+    - elements must be sorted in descending order
+- is_permutation takes two iterator ranges
+- returns true if they are permutations of each other
+
+## Min and Max Algorithms
+- Returns the largest and/or smallest element
+- max_element()
+- min_element()
+- maxmin_element()
+
+## Further Numeric Algorithms
+- partial_sum() writes the running total of the elemets into another container
+    - can be used to perform numerical integration
+    - given {a,b,c,...}
+        - target container will contain {a, a+b, a+b+c, ...}
+- adjecent_difference() writes the difference between successive elements into another container
+    - given {a,b,c,...}
+        - target container will contain {a, b-a, c-b, ...}
+- inner_product() will multiply the corresponding elements between two containers
+    - given {a1,a2,a3,...} and {b1,b2,b3,...}
+        - result will be a1\*b1 + a2\*b2 + a3\*b3
+    - equivalent to transform() followed by accumulate()
+    - can be overloaded by providing different binary functions instead of the default + and *
+        - replace * with "transform" method
+        - replace + with "accumulate" method
+ 
