@@ -51,6 +51,6 @@ int main() {
         string outstr;
         copy(cbegin(pal), p.second.base(), back_inserter(outstr));
         cout << "'" << *p.first << "'" << " does not match " << "'" << *p.second << "'";
-        cout << "at \"" << outstr << "\"" << endl;
+        cout << " at \"" << outstr << "\"" << endl;
     }
 }
