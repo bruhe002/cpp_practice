@@ -242,15 +242,31 @@ int main() {
     string s("");
     istreambuf_iterator<char> eos;
     istreambuf_iterator<char> f_iter(WordsFile);
+    
+    cout << "ORIGINAL STRING" << endl;
+    cout << s << endl;
+    // Copy to string
     copy(f_iter, eos, back_inserter(s));
+
+    // Make all same case
     transform(s.begin(), s.end(), s.begin(),
         [](char c) { return tolower(c); } 
     );
+
+    // Remove punct
     copy_if(s.begin(), s.end(), s.begin(),
         [](char c) { return !ispunct(c); }
     );
 
-    cout << s << endl;
+    // Make a unique string
+    auto it = unique(s.begin(), s.end());
+    string unique_str("");
+    copy(s.begin(), it, back_inserter(unique_str));
+    cout << "UNIQUE STRING:" << endl;
+    cout << unique_str << endl;
+
+
+
     
     return 0;
 }
