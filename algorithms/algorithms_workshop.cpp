@@ -149,5 +149,10 @@ int main() {
     // Ex. 6
     printVectors(normalize(vect));
 
+    // Ex. 7
+    pair<int,int> p = sortVector455(vect);
+    cout << "First Element greater than 455 = " << p.first << endl;
+    cout << "Number of elements greater than 455 = " << p.second << endl;
+
     return 0;
 }
