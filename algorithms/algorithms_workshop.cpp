@@ -118,6 +118,33 @@ pair<int, int> sortVector455(const vector<int>& v) {
     return make_pair(*up, distance(up, sorted_v.end()));
 }
 
+/*
+    Exercise Eight: Copy odd numbers to an output vector
+    @param v: vector to copy
+    @return output vector
+*/
+vector<double> oddVector(const vector<int>& v) {
+    // copy odds into a new vector
+    vector<double> d;
+
+    copy_if(v.begin(), v.end(), back_inserter(d), 
+        [](int n) { return n % 2 == 1; }
+    );
+
+    return d;
+}
+
+/*
+    Exercise Nine: Sort vector in descending order
+    @param v: vector to sort
+*/
+void sortDescending(vector<int>& v) {
+
+    sort(v.begin(), v.end(), 
+        [](int n, int m) { return n > m; }
+    );
+}
+
 int main() {
 
     vector<int> vect(10);
@@ -141,12 +168,22 @@ int main() {
     cout << "Num of Odd Numbers = " << countOdds(vect) << endl;
 
     // Ex. 6
+    cout << "Normalized vector = ";
     printVectors(normalize(vect));
 
     // Ex. 7
     pair<int,int> p = sortVector455(vect);
     cout << "First Element greater than 455 = " << p.first << endl;
     cout << "Number of elements greater than 455 = " << p.second << endl;
+
+    // Ex. 8
+    cout << "Odd vectors = ";
+    printVectors(oddVector(vect));
+
+    // Ex. 9
+    sortDescending(vect);
+    cout << "Sorted Descending Array = ";
+    printVectors(vect);
 
     return 0;
 }
