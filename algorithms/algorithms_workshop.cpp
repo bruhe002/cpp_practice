@@ -244,7 +244,7 @@ int main() {
     istreambuf_iterator<char> f_iter(WordsFile);
     copy(f_iter, eos, back_inserter(s));
     transform(s.begin(), s.end(), s.begin(),
-        [](char c) { tolower(c); } 
+        [](char c) { return tolower(c); } 
     );
 
     cout << s << endl;
