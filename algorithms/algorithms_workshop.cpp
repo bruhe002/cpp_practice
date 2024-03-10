@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <experimental/iterator>
 #include <algorithm>
 #include <random>
 #include <iterator>
@@ -175,12 +176,9 @@ vector<int> removeOdds(vector<int>& v) {
 */
 void writeToFile(const vector<int>& v) {
     ofstream EvenFile("even_vector.txt");
-    ostream_iterator<int> iter(EvenFile, ", ");
-
-    copy(v.begin(), v.end(), iter);
+    copy(v.begin(), v.end(), experimental::make_ostream_joiner(EvenFile, ", ")); 
 
     EvenFile.close();
-
 }
 
 int main() {
