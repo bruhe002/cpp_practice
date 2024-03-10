@@ -234,6 +234,15 @@ int main() {
     // Ex. 12
     cout << "Writing to a file..." << endl;
     writeToFile(even_v);
+
+    // Ex. 13
+    // Read words file
+    ifstream WordsFile("words.txt");
+    string s("");
+    istreambuf_iterator<char> eos;
+    istreambuf_iterator<char> f_iter(WordsFile);
+    copy(f_iter, eos, back_inserter(s));
+    cout << s << endl;
     
     return 0;
 }
