@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////
 
 #include <iostream>
+#include <fstream>
 #include <algorithm>
 #include <random>
 #include <iterator>
@@ -157,10 +158,29 @@ void shuffleMiddleVect(vector<int>& v) {
     Exercise Eleven: Removing odds from a vector
     @param v: vector to shuffle
 */
-void removeOdds(vector<int>& v) {
-    remove_if(v.begin(), v.end(), 
+vector<int> removeOdds(vector<int>& v) {
+    vector<int> even_v;
+    auto it = remove_if(v.begin(), v.end(), 
         [](int n) { return n % 2 == 1; }
     );
+    
+    copy(v.begin(), it, back_inserter(even_v));
+
+    return even_v;
+}
+
+/*
+    Exercise Twelve: Writing elements to file
+    @param v: vector to write
+*/
+void writeToFile(const vector<int>& v) {
+    ofstream EvenFile("event_vector.txt");
+    ostream_iterator<int> iter(EvenFile, ", ");
+
+    copy(v.begin(), v.end(), iter);
+
+    EvenFile.close();
+
 }
 
 int main() {
@@ -209,9 +229,13 @@ int main() {
     printVectors(vect);
 
     // Ex. 11
-    removeOdds(vect);
+    vector<int> even_v(removeOdds(vect));
     cout << "Odds Removed = ";
-    printVectors(vect);
+    printVectors(even_v);
 
+    // Ex. 12
+    cout << "Writing to a file..." << endl;
+    writeToFile(even_v);
+    
     return 0;
 }
