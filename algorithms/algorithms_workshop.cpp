@@ -110,18 +110,12 @@ pair<int, int> sortVector455(const vector<int>& v) {
     vector<int> sorted_v;
     copy(v.begin(), v.end(), back_inserter(sorted_v));
     sort(sorted_v.begin(), sorted_v.end());
-
-    // Partion the sort
-    partition(sorted_v.begin(), sorted_v.end(), 
-        [](int n) { return n > 455; }
-    );
+    cout << "Sorted array = ";
+    printVectors(sorted_v);
 
     // Find the values
-    auto iter = partition_point(sorted_v.begin(), sorted_v.end(), 
-        [](int n) { return n > 455; }
-    );
-
-    return make_pair(sorted_v[0], distance(sorted_v.begin(), iter));
+    auto up = upper_bound(sorted_v.begin(), sorted_v.end(), 455);
+    return make_pair(*up, distance(up, sorted_v.end()));
 }
 
 int main() {
