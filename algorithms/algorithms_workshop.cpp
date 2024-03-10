@@ -181,6 +181,20 @@ void writeToFile(const vector<int>& v) {
     EvenFile.close();
 }
 
+string normalize_str(const string& s) {
+    string ret_str{""};
+
+    copy_if(s.begin(), s.end(), back_inserter(ret_str), 
+        [](char s) { return isalpha(s); }
+    );
+
+    transform(ret_str.begin(), ret_str.end(), ret_str.begin(), 
+        [](char c) { return tolower(c); }
+    );
+
+    return ret_str;
+}
+
 int main() {
 
     vector<int> vect(10);
@@ -234,38 +248,30 @@ int main() {
     // Ex. 12
     cout << "Writing to a file..." << endl;
     writeToFile(even_v);
-    cout << endl << endl;
 
     // Ex. 13
     // Read words file
-    ifstream WordsFile("words.txt");
-    string s("");
-    istreambuf_iterator<char> eos;
-    istreambuf_iterator<char> f_iter(WordsFile);
-    
-    cout << "ORIGINAL STRING" << endl;
-    cout << s << endl;
+    ifstream WordsFile{"words.txt"};
+    istream_iterator<string> eos;
+    istream_iterator<string> f_iter(WordsFile);
+
     // Copy to string
-    copy(f_iter, eos, back_inserter(s));
-
+    vector<string> words_v{f_iter, eos};
+    
+    vector<string> new_words;
     // Make all same case
-    transform(s.begin(), s.end(), s.begin(),
-        [](char c) { return tolower(c); } 
-    );
+    transform(words_v.begin(), words_v.end(), back_inserter(new_words), normalize_str);
 
-    // Remove punct
-    copy_if(s.begin(), s.end(), s.begin(),
-        [](char c) { return !ispunct(c); }
-    );
+    sort(new_words.begin(), new_words.end());
 
-    // Make a unique string
-    auto it = unique(s.begin(), s.end());
-    string unique_str("");
-    copy(s.begin(), it, back_inserter(unique_str));
+    auto it = unique(new_words.begin(), new_words.end());
+
+    vector<string> unique_words;
+    copy(new_words.begin(), it, back_inserter(unique_words));
     cout << "UNIQUE STRING:" << endl;
-    cout << unique_str << endl;
+    printVectors(unique_words);
 
-
+    cout << "words.txt # of words = " << words_v.size() << endl;
 
     
     return 0;
