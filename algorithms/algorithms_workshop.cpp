@@ -121,6 +121,7 @@ pair<int, int> sortVector455(const vector<int>& v) {
         [](int n) { return n > 455; }
     );
 
+    return make_pair(sorted_v[0], distance(sorted_v.begin(), iter));
 }
 
 int main() {
