@@ -234,6 +234,7 @@ int main() {
     // Ex. 12
     cout << "Writing to a file..." << endl;
     writeToFile(even_v);
+    cout << endl << endl;
 
     // Ex. 13
     // Read words file
