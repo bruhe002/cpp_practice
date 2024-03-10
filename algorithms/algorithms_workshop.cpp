@@ -174,7 +174,7 @@ vector<int> removeOdds(vector<int>& v) {
     @param v: vector to write
 */
 void writeToFile(const vector<int>& v) {
-    ofstream EvenFile("event_vector.txt");
+    ofstream EvenFile("even_vector.txt");
     ostream_iterator<int> iter(EvenFile, ", ");
 
     copy(v.begin(), v.end(), iter);
