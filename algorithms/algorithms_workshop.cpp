@@ -100,6 +100,18 @@ vector<double> normalize(const vector<int>& v) {
     return ret_v;
 }
 
+/*
+    Exercise Seven: Sort the Vector and find elements greater than 455
+    @param v: vector to sort
+    @return pair with first element greater than 455 and num of elements greater than 455
+*/
+pair<int, int> sortVector455(const vector<int>& v) {
+    // sort vector into copy
+    vector<int> sorted_v;
+    copy(v.begin(), v.end(), back_inserter(sorted_v));
+    sort(sorted_v.begin(), sorted_v.end());
+}
+
 int main() {
 
     vector<int> vect(10);
