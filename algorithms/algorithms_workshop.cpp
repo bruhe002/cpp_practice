@@ -110,6 +110,17 @@ pair<int, int> sortVector455(const vector<int>& v) {
     vector<int> sorted_v;
     copy(v.begin(), v.end(), back_inserter(sorted_v));
     sort(sorted_v.begin(), sorted_v.end());
+
+    // Partion the sort
+    partition(sorted_v.begin(), sorted_v.end(), 
+        [](int n) { return n > 455; }
+    );
+
+    // Find the values
+    auto iter = partition_point(sorted_v.begin(), sorted_v.end(), 
+        [](int n) { return n > 455; }
+    );
+
 }
 
 int main() {
