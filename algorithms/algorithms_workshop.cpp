@@ -246,6 +246,9 @@ int main() {
     transform(s.begin(), s.end(), s.begin(),
         [](char c) { return tolower(c); } 
     );
+    copy_if(s.begin(), s.end(), s.begin(),
+        [](char c) { return !ispunct(c); }
+    );
 
     cout << s << endl;
     
