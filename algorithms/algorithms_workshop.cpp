@@ -145,6 +145,24 @@ void sortDescending(vector<int>& v) {
     );
 }
 
+/*
+    Exercise Ten: Randomly shuffle vector in a certain range
+    @param v: vector to shuffle
+*/
+void shuffleMiddleVect(vector<int>& v) {
+    random_shuffle(v.begin()+1, v.end()-1);
+}
+
+/*
+    Exercise Eleven: Removing odds from a vector
+    @param v: vector to shuffle
+*/
+void removeOdds(vector<int>& v) {
+    remove_if(v.begin(), v.end(), 
+        [](int n) { return n % 2 == 1; }
+    );
+}
+
 int main() {
 
     vector<int> vect(10);
@@ -183,6 +201,16 @@ int main() {
     // Ex. 9
     sortDescending(vect);
     cout << "Sorted Descending Array = ";
+    printVectors(vect);
+
+    // Ex. 10
+    shuffleMiddleVect(vect);
+    cout << "Random shuffle array(except first and last) = ";
+    printVectors(vect);
+
+    // Ex. 11
+    removeOdds(vect);
+    cout << "Odds Removed = ";
     printVectors(vect);
 
     return 0;
