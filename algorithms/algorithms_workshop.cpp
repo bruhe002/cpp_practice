@@ -271,7 +271,13 @@ int main() {
     cout << "UNIQUE STRING:" << endl;
     printVectors(unique_words);
 
+    // Ex. 14
     cout << "words.txt # of words = " << words_v.size() << endl;
+
+    // Ex. 15
+    istreambuf_iterator<char> c_eos, fc_iter(WordsFile);
+    int lines = count(fc_iter, c_eos, '\n');
+    cout << "words.txt # of lines = " << lines << endl;
 
     
     return 0;
