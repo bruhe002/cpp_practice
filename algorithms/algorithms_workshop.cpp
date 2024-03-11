@@ -320,5 +320,13 @@ int main() {
     cout << "words.txt && words2.txt = ";
     printVectors(inter_words);  
 
+    // Ex 18
+    vector<int> six{1,2,3,4,5,6};
+    int factorial = accumulate(six.begin(), six.end(), 1, 
+        [](int n, int m) { return n * m; }
+    );
+
+    cout << "Factorial of six = " << factorial << endl;
+
     return 0;
 }
