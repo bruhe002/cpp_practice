@@ -290,6 +290,35 @@ int main() {
 
     cout << "words.txt # of char = " << all_char.size() << endl;
 
+    WordsFile_2.close();
+
+    // Ex 17
+    ifstream WordsFile_3("words.txt");
+    ifstream SecondWordsFile("words2.txt");
+
+    istream_iterator<string> wf1(WordsFile_3), wf2(SecondWordsFile);
+
+    vector<string> words_1{wf1, eos};
+    vector<string> words_2{wf2, eos};
+
+    vector<string> new_words_1;
+    vector<string> new_words_2;
+
+    transform(words_1.begin(), words_1.end(), back_inserter(new_words_1), normalize_str);
+    transform(words_2.begin(), words_2.end(), back_inserter(new_words_2), normalize_str);
+    sort(new_words_1.begin(), new_words_1.end());
+    sort(new_words_2.begin(), new_words_2.end());
     
+
+    it = set_intersection(new_words_1.begin(), new_words_1.end(), 
+                          new_words_2.begin(), new_words_2.end(), 
+                          new_words_1.begin()
+    );
+
+    vector<string> inter_words;  
+    copy(new_words_1.begin(), it, back_inserter(inter_words));
+    cout << "words.txt && words2.txt = ";
+    printVectors(inter_words);  
+
     return 0;
 }
