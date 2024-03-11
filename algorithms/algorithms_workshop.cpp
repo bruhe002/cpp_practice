@@ -276,7 +276,8 @@ int main() {
 
     // Ex. 15
     istreambuf_iterator<char> c_eos, fc_iter(WordsFile);
-    int lines = count(fc_iter, c_eos, '\n');
+    string s{fc_iter, c_eos};
+    int lines = count(s.begin(), s.end(), '\n');
     cout << "words.txt # of lines = " << lines << endl;
 
     
