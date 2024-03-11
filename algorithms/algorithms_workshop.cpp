@@ -288,6 +288,8 @@ int main() {
         [](char c) { return isalpha(c); }
     );
 
+    cout << "words.txt # of char = " << all_char.size() << endl;
+
     
     return 0;
 }
