@@ -281,6 +281,12 @@ int main() {
 
     int lines = count(s.begin(), s.end(), '\n');
     cout << "words.txt # of lines = " << lines << endl;
+    
+    // Ex 16
+    string all_char{""};
+    copy_if(s.begin(), s.end(), back_inserter(all_char), 
+        [](char c) { return isalpha(c); }
+    );
 
     
     return 0;
