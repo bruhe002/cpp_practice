@@ -273,10 +273,12 @@ int main() {
 
     // Ex. 14
     cout << "words.txt # of words = " << words_v.size() << endl;
-
+    WordsFile.close();
+    ifstream WordsFile_2{"words.txt"};
     // Ex. 15
-    istreambuf_iterator<char> c_eos, fc_iter(WordsFile);
+    istreambuf_iterator<char> c_eos, fc_iter(WordsFile_2);
     string s{fc_iter, c_eos};
+
     int lines = count(s.begin(), s.end(), '\n');
     cout << "words.txt # of lines = " << lines << endl;
 
