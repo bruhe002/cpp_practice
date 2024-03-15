@@ -47,3 +47,26 @@ for (auto it = begin(arr); it < end(arr); it++) {
 - last node will contain an invalid pointer to indicate it is last
 - found in <forward_list> library
 
+## List
+- double-linked list
+    - each node has a link to the previous node as well as the next node
+    - can be easily traversed backwards
+    - to indicate the first element, the previous pointer will be NULL
+- pros/cons of list
+    - adding/removing elements is faster than vectors
+    - lists do not support indexing
+    - accessing an element is slower
+    - lists use more memory to store an element than vector
+    - useful when adding/removing elements frequently
+- can use push_back and push_front
+- we can use iterators
+- lists do not use RANDOM access
+    - thus random access functions cannot be used
+- list member functions are faster than their generic equivalent
+    - reverse
+    - remove
+    - remove_if
+    - unique
+    - merge
+    - splice
+
