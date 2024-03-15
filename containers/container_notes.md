@@ -41,3 +41,9 @@ for (auto it = begin(arr); it < end(arr); it++) {
 }
 ```
 
+## Forward Lists
+- each element has its own allocation ("node")
+- use of pointers to point to the next node
+- last node will contain an invalid pointer to indicate it is last
+- found in <forward_list> library
+
