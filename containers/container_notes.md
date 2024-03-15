@@ -70,3 +70,17 @@ for (auto it = begin(arr); it < end(arr); it++) {
     - merge
     - splice
 
+## Deque
+- implements a Double-Ended Queue
+- similar to vector but elements can be added in the front
+- defined in <deque>
+- implemented as a 2d array
+    - has multiple memory blocks which each store several elements
+    - vectors and list use one memory block
+- has a push_front member functions
+- if there is not enough room to store new element, 
+    - it will just deallocate memory and allocate more
+- deque is slightly slower than vector for most operations
+    - faster for adding elements to the front
+- lists is much slower than vector and deque for most operations and uses more memory
+- vector should be the default choice
