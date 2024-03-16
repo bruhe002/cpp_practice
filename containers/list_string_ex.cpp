@@ -27,7 +27,7 @@ int main() {
     } while(input != "-1");
 
     // Display Input
-    cout << "Here is the a list of your strings:\n";
+    cout << "Here is the list of your strings:\n";
     for(int i = 0; i < strings.size(); ++i) {
         auto it = strings.begin();
         advance(it, i);
