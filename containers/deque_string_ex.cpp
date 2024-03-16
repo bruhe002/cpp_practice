@@ -28,7 +28,7 @@ int main() {
     } while(input != "-1");
 
     // Display the input
-    cout << "Here is the vector of your strings:\n";
+    cout << "Here is the deque of your strings:\n";
     for(int i = 0; i < strings.size(); ++i) {
         auto it = strings.begin();
         advance(it, i);
