@@ -26,8 +26,8 @@ int main() {
     } while(input != "-1");
 
     cout << "Here is the a list of your strings:\n";
-    for(int i = 0; i < strings.size();) {
-        cout << ++i << ": " << strings[i] << endl;
+    for(int i = 0; i < strings.size(); ++i) {
+        cout << i + 1 << ": " << strings[i] << endl;
     }
 
     return 0;
