@@ -30,11 +30,19 @@ public:
         cout << protocol << "://" << resource;
     }
 
-    string returnUrlStr() {
+    string returnUrlStr() const {
         ostringstream os;
 
         os << protocol << "://" << resource;
         return os.str();
+    }
+    
+    bool operator==(const Url& rhs) {
+        return this->returnUrlStr() == rhs.returnUrlStr();
+    }
+
+    bool operator!=(const Url& rhs) {
+        return this->returnUrlStr() != rhs.returnUrlStr();
     }
 
     ~Url() {}
