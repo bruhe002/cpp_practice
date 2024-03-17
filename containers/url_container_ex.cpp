@@ -49,6 +49,8 @@ public:
             os << i + 1 << ": " << uh.urls[i].returnUrlStr() << endl; 
         }
         os << "\n";
+
+        return os;
     }
 
     ~UrlHistory() {
