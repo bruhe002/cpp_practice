@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////
 
 #include <iostream>
+#include <algorithm>
 #include <deque>
 
 #include "../url_class.cpp"
@@ -22,10 +23,23 @@ public:
         this->urls = uh.urls;
     }
 
-    void add_url(const string& pro, const string& res) const {
+    void add_url(const string& pro, const string& res) {
         Url website(pro, res);
 
-        urls.push_front(Url(pro, res));
+        // Loop through the urls
+        for(auto u = begin(urls); u < end(urls); u++) {
+            // Check if any are equal to website
+            if (*u == website) {
+                // if the Url is already in front, do nothing
+                if(*u != urls.front()) {
+                    // else erase it
+                    urls.erase(u);
+                    break;
+                }
+            }
+        }
+
+        urls.push_front(website);
     }
 
     ~UrlHistory() {
