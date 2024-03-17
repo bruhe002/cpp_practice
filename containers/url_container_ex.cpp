@@ -28,16 +28,28 @@ public:
         Url website(pro, res);
 
         // Loop through the urls
-        for(auto u = begin(urls); u < end(urls); u++) {
-            // Check if any are equal to website
-            if (*u == website) {
-                // if the Url is already in front, do nothing
-                if(*u != urls.front()) {
-                    // else erase it
-                    urls.erase(u);
-                    break;
-                }
+        // for(auto u = begin(urls); u < end(urls); u++) {
+        //     // Check if any are equal to website
+        //     if (*u == website) {
+        //         // if the Url is already in front, do nothing
+        //         if(*u != urls.front()) {
+        //             // else erase it
+        //             urls.erase(u);
+        //             break;
+        //         }
+        //     }
+        // }
+
+        auto found = find_if(urls.begin(), urls.end(), 
+            [&website](Url u) {
+                return u == website;
             }
+        );
+
+        if(found != urls.end()) {
+            if(*found != urls.front()) {
+                urls.erase(found);
+            }   
         }
 
         urls.push_front(website);
