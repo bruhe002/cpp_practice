@@ -6,6 +6,7 @@
 ///////////////////////////////////////////////////
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <stdint.h>
 
@@ -14,6 +15,12 @@ using namespace std;
 class Url {
 
 public:
+
+    Url() {
+        this->protocol = "";
+        this->resource = "";
+    }
+
     Url(const string& protocol, const string& resource) {
         this->protocol = protocol;
         this->resource = resource;
@@ -21,6 +28,13 @@ public:
 
     void displayUrl() {
         cout << protocol << "://" << resource;
+    }
+
+    string returnUrlStr() {
+        ostringstream os;
+
+        os << protocol << "://" << resource;
+        return os.str();
     }
 
     ~Url() {}
