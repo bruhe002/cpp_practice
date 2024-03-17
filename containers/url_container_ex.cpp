@@ -8,6 +8,7 @@
 #include <iostream>
 #include <algorithm>
 #include <deque>
+#include <string>
 
 #include "../url_class.cpp"
 
@@ -42,6 +43,14 @@ public:
         urls.push_front(website);
     }
 
+    friend ostream& operator<<(ostream& os, const UrlHistory& uh) {
+        os << "URL History:\n";
+        for(size_t i = 0; i < uh.urls.size(); i++) {
+            os << i + 1 << ": " << uh.urls[i].returnUrlStr() << endl; 
+        }
+        os << "\n";
+    }
+
     ~UrlHistory() {
         this->urls.clear();
     }
@@ -50,9 +59,35 @@ private:
     deque<Url> urls;
 };
 
+const string GLOBAL_PROTOCOL = "http";
+
 int main() {
 
+    // Initialize History object
+    UrlHistory history;
 
+    // Loop for input
+    string input{""};
+    do {
+        cout << "Enter a URL:\n";
+        getline(cin, input);
+
+        if (input != "-1") {
+            auto delimeter_idx = input.find("://");
+            if(delimeter_idx != std::string::npos) {
+                string protoc{input, 0, delimeter_idx};
+                string res{input, delimeter_idx + 3, input.size()};
+
+                history.add_url(protoc, res);
+            } else {
+                history.add_url(GLOBAL_PROTOCOL, input);
+            }
+
+            // Print the history
+            cout << history;
+        }
+
+    } while(input != "-1");
 
     return 0;
 }
