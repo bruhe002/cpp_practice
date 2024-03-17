@@ -71,7 +71,7 @@ int main() {
     // Loop for input
     string input{""};
     do {
-        cout << "Enter a URL:\n";
+        cout << "Enter a URL (enter '-1' to quit):\n";
         getline(cin, input);
 
         if (input != "-1") {
