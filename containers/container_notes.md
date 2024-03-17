@@ -84,3 +84,43 @@ for (auto it = begin(arr); it < end(arr); it++) {
     - faster for adding elements to the front
 - lists is much slower than vector and deque for most operations and uses more memory
 - vector should be the default choice
+
+## Tree data structure
+- each element has its own node
+- a node has a key for the element
+    - two pointers
+        - left: contains a lesser key
+        - right: contains a greater key
+- first element is called a root
+- advantage of this structure is seaching is very fast
+- adding/removing is very fast as well
+- might need to "rebalance" the tree
+    - if all elements are less than the root, then it just becomes an array
+    - need to choose a new root, move elements around until the tree is balanced again
+    - "balanced-trees" auto rebalance themeselves
+        - red-black
+        - avl
+
+## Sets
+- an unstructured collection of elements
+- an associative container
+- an element consists only of a key, which MUST be unique
+- elements of a set are stored in order
+- set implemented as a tree (r&b)
+- uses insert and erase
+    - no push_front/back since none exist
+- trying to insert an element in the set will return a fail
+- insert() returns a pair object
+    - second member is a boolean which is true/false whether success
+    - first is an iterator to an element in a set
+        - either new or existing if succeed and fail
+- s.find(k) returns an iter to the element with key k
+- s.count(k) returns the count of an element with key k
+    - due to no duplicates, return value is either 0 or 1
+- elements of a set are CONST
+- cannot be reorders
+- can use read-only algorithms
+- very fast at accessing an arbitrary element
+- insertion and deletion is very fast
+- useful for checking membership
+- useful when duplicate data is either not needed nor wanted
