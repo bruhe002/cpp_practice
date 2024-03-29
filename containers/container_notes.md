@@ -143,3 +143,22 @@ for (auto it = begin(arr); it < end(arr); it++) {
 - very fast at accessing an arbituary element
 - insertion and deletion are usually very fast
 - can be slow if the internal tree gets unbalanced
+- \[\] provides an insert functionality
+- if duplicates appear, the value gets overwritten
+- if an exception is thrown, the partially populated element is left in the map
+    - value is default initialized
+- in C++17
+    - introduced structured binding
+    - easy way to access data structures
+
+    ```
+    for (auto [names, score] : scores) {  // Perfectly legal
+        ...
+    }
+    ```
+
+    - insert_or_assign(): function that takes a pair for a map
+        - returns a pair, first value is iterator of the pair, 
+            - second is a bool
+                - true if inserted
+                - false if assigned
