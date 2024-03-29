@@ -162,3 +162,14 @@ for (auto it = begin(arr); it < end(arr); it++) {
             - second is a bool
                 - true if inserted
                 - false if assigned
+
+## Multiset and Multimap
+- similar to set and map, 
+    - duplicate keys are allowed
+    - does not utilize subscript operator
+- if we use erase(), it will erase all duplicate keys
+    - pass an iterator to remove a single element
+        - we can use find() in a multimap to the first element with the key
+        - count() will return the number of elements with a key
+        - use these functions to loop through the keys and erase the iterator
+- 
