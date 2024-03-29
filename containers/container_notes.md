@@ -124,3 +124,15 @@ for (auto it = begin(arr); it < end(arr); it++) {
 - insertion and deletion is very fast
 - useful for checking membership
 - useful when duplicate data is either not needed nor wanted
+
+## Map
+- std::map library in the <map> container
+- associative container
+- each element consists of a std::pair
+    - the first member is the key of the element
+    - second is the "value" of the element
+- each element must have a unique key
+    - values do not have to be unique!
+- elements are stored in order
+- for efficiency the map is implemented as a tree, usually a red-black tree
+- 
