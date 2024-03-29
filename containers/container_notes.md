@@ -135,4 +135,11 @@ for (auto it = begin(arr); it < end(arr); it++) {
     - values do not have to be unique!
 - elements are stored in order
 - for efficiency the map is implemented as a tree, usually a red-black tree
-- 
+- key acts like an index
+    - used to locate corresponding data
+- insert and erase functions
+    - add elements using a pair class
+- map suports subscripting
+- very fast at accessing an arbituary element
+- insertion and deletion are usually very fast
+- can be slow if the internal tree gets unbalanced
