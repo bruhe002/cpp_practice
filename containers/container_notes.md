@@ -172,4 +172,7 @@ for (auto it = begin(arr); it < end(arr); it++) {
         - we can use find() in a multimap to the first element with the key
         - count() will return the number of elements with a key
         - use these functions to loop through the keys and erase the iterator
-- 
+- multimap and multiset have member functions to set iterator ranges of keys
+    - upper_bound(k) returns iterator of first element with key k
+    - lower_bound(k) returns iterator of last element with key k
+    - equal_range(k) returns a pair of the upper and lower bounds of key k 
