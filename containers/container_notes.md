@@ -217,3 +217,14 @@ for (auto it = begin(arr); it < end(arr); it++) {
     - use vector or map to access other elements
 
 ## Priority Queues
+- similar to a queue
+- order depends on important factors not arrival time
+- most impoortant in the front, while least important element at the back
+- can be implemented as a vector or a deque
+- useful for processing data that needs to be prioritize
+    - Operating System Schedulers
+    - management system for bug reports
+- only access to top element
+- elements with the same priority are not guaranteed to be in arrival order
+
+## Stacks
