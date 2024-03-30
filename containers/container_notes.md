@@ -176,3 +176,24 @@ for (auto it = begin(arr); it < end(arr); it++) {
     - upper_bound(k) returns iterator of first element with key k
     - lower_bound(k) returns iterator of last element with key k
     - equal_range(k) returns a pair of the upper and lower bounds of key k 
+
+## Unordered Associative Containers
+- associative containers store their element in an order which depends on the key
+- sets and maps use a tree
+- unordered associative containers use a hash table
+- a hash table is an array of buckets
+    - in this case a bucket is just a list
+    - buckets are a linked list of pointers to the container's elements
+    - index of the array is calculated from the element
+    - "hash function" generates a number based on the key
+- to insert an element, calculate hash number of the key
+    - use it to know which bucket
+- for efficiency, each element needs its own hash container
+    - if the hash number is the same for two different keyys, this creates a "hash collision"
+    - makes searching the bucket longer
+- C++ provides unordered versions of most of their containers
+    - unordered map
+    - unordered set
+- unordered containers only allow forward iteration
+    - not useful since containers have no sense of order
+    - unless iterating over the entire container
