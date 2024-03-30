@@ -200,3 +200,20 @@ for (auto it = begin(arr); it < end(arr); it++) {
 
 ## Nested Maps
 - a map that contains another map
+
+## Queues
+- a data structure in which elements are stored in the order in which they are inserted
+- as elements are processed, 
+    - element in the front is removed
+    - new elements are inserted in the back
+- a First in First out data structure (FIFO)
+- implemented as a deque
+- queues are mainly used for temporily storing data in the order it arrived
+    - Network data packets waiting for CPU time
+    - must be processed in sequence
+- inventory system for perishable goods
+    - oldest goods must be shipped first
+- can only access front element
+    - use vector or map to access other elements
+
+## Priority Queues
