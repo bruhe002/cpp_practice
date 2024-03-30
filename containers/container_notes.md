@@ -197,3 +197,6 @@ for (auto it = begin(arr); it < end(arr); it++) {
 - unordered containers only allow forward iteration
     - not useful since containers have no sense of order
     - unless iterating over the entire container
+
+## Nested Maps
+- a map that contains another map
