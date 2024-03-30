@@ -23,6 +23,8 @@ peg_array populate() {
     generate(begin(code), end(code),
         [&]() { return constants::colors[ud(mt)]; }
     );
+
+    return code;
 }
 
 int main() {

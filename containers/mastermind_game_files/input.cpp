@@ -22,6 +22,8 @@ string normalize(const string& s) {
     transform(retval.begin(), retval.end(), begin(retval),
         [](char c) { return toupper(c); }
     );
+
+    return retval;
 }
 
 peg_array get_input() {
