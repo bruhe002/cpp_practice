@@ -36,6 +36,8 @@ peg_array get_input() {
             cout << c;
         cout << ")" << endl;
 
+        getline(cin, input);
+
         normal = normalize(input);
     } while (normal.size() != constants::npegs);
 
