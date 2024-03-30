@@ -37,3 +37,37 @@ class Aeroplane : public Vehicle {
 ## Member Functions and Inheritance
 - a child class inherits all non-private member functions of its parent class
 - a child class can re-implement the parent class's member function for its own function
+- extending member functions
+    - child classes can call the parent functions using scope operator - ::
+
+    ```
+        class Airplane : public Vehicle {
+            void start() {
+                ...
+                Vehicle::start()
+                ...
+            }
+        }
+    ```
+
+- "protected" keyword allows child class use members from parent that no other code has access to
+    - think of "private but only for the family"
+
+## Overloaded Member functions
+- we can overload inherited member functions
+- we write a new member function definition with a diffferent signature
+- hidden member functions
+    - if we overload an inherited function in the child class, 
+        - it will "hide" all the other inherited member functions with that name
+            - they cannot be called with the child class
+            - this is inconsistent with OO design principles
+            - one solution is to define the inherited functions in that class
+                - this could be a lot of work
+                - in C++11, we can use the "using" keyword to use the parent's version
+                
+                ```
+                using Vehicle::accelerate;
+                void accelerate(int height) {
+                    ...
+                }
+                ```
