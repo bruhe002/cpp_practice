@@ -228,3 +228,11 @@ for (auto it = begin(arr); it < end(arr); it++) {
 - elements with the same priority are not guaranteed to be in arrival order
 
 ## Stacks
+- a data structure in which elements are stored in the order in which they were inserted
+- when adding new elements, they are added to the top
+- only top can be accessed
+- when processed, element at the top is removed
+    - Last In First Out (LIFO) structure
+- good for parsing expressions in compilers
+    - implementing undo functionality
+    - storing history in web browsers
