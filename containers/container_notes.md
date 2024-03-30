@@ -236,3 +236,17 @@ for (auto it = begin(arr); it < end(arr); it++) {
 - good for parsing expressions in compilers
     - implementing undo functionality
     - storing history in web browsers
+
+## Emplacement
+- introduced C++11
+- another way to add elements to containers
+- member functions like push_back and insert() require an existing object
+    - copies their argument into a newly created element
+- with emplace(), arguments are forwarded to the objects consturctor
+- avoids copying, saving up space
+- if container supports push_back() there is emplace_back()
+    - same with front
+- works differently with containers that have unique keys
+    - will create a temporary object
+    - then checks if there's an element with the same key
+- only way to insert objects which cannot be copied
