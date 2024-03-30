@@ -8,7 +8,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "inputs.h"
+#include "input.h"
 
 using namespace std;
 

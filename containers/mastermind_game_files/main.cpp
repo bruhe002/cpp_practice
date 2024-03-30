@@ -11,7 +11,7 @@
 
 #include "constants.h"
 #include "validate.h"
-#include "inputs.h"
+#include "input.h"
 
 using namespace std;
 
