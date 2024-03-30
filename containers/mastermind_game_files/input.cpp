@@ -8,7 +8,6 @@
 #include <iostream>
 #include <algorithm>
 
-#include "constants.h"
 #include "inputs.h"
 
 using namespace std;
