@@ -14,6 +14,16 @@
 
 using namespace std;
 
+// peg_array populate() {
+//     peg_array code{0};
+//     static mt19937 mt;
+//     uniform_int_distribution<int> ud(0, constants::ncolors-1);
+
+//     generate(begin(code), end(code),
+//         [&]() { return constants::colors[ud(mt)]; }
+//     );
+// }
+
 int main() {
     // peg_array pegs = populate();
 
