@@ -156,3 +156,11 @@ class Aeroplane : public Vehicle {
     - will use the parent copy constructor
 - cannot pass abstract base class by value
     - will not compile
+- some overhead to using virtual member functions
+
+## Polymorphism
+- means different types have the same interface
+    - they have the same behavior
+- base class and derived classes is known as "subtype polymorphism"
+- an object of a type can be replaced by an object of its subtype
+-  a c++ trend to use parametric polymorphism rather than subtype polymorphism
