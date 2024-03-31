@@ -35,6 +35,15 @@ void print_class(const Parent& p) {
 }
 
 int main() {
+    // First implementation
+    Parent par;
+    Child kid;
+    Grandchild gc;
+
+    cout << "Printing the FIRST Objects:\n";
+    print_class(par);
+    print_class(kid);
+    print_class(gc);
 
     return 0;
 }
