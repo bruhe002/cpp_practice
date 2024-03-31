@@ -71,3 +71,37 @@ class Aeroplane : public Vehicle {
                     ...
                 }
                 ```
+
+## Pointers References and Inheritance
+- Normally a pointer must point to a variable of the same type
+- a pointer to a base class can point to any object in the same hierarchy
+
+```
+    class Circle : public Shape {};
+
+    Circle c;
+    Shape* pshape = &c;
+
+```
+- however, we cannot go in the other direction
+```
+    Circle* circle = &shape; // Error
+```
+
+- this works due to how memory is allocated for parent and child classes
+- depending on how the variable is defined, it will only have access to that data's member functions
+    - `Shape* s = new Circle` -> s is seen as a Shape first and will not have access to Circle's members
+
+## Static and Dynaminc Type
+- static type is the type used in the variable declaration
+```
+    Shape *pshape = &circle; // Static type is Shape
+```
+
+- Dynamic Type is the type of the variable in memory
+```
+    Shape *pshape = &circle; // Dynamic type is Circle
+```
+
+- C++ almost always uses static typing
+    - dynamic type is only used for a pointer or reference to a base class
