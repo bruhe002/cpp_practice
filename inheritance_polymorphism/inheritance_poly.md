@@ -128,10 +128,31 @@ class Aeroplane : public Vehicle {
     - `void draw(int) const override {...}`
 - C++11 also introduced "final" keyword
     - a class that cannot be derived from
-    - the leaf of the heirarchy
+    - the leaf of the hierarchy
 
 ## Virtual Destructor
 - if a destructor is non virtual, static binding will be used
     - only the static type destructor will be called
 - if it was virtual, the derived destructor is called, then the parent destructor
 - default contructors are NOT virtual
+
+## Interfaces
+- typically base classes model abstract concepts such as "shape" or "vehicle"
+- derived classes are more concrete
+- base class is the INTERFACE to the class heirarchy
+- it's public virtual member functions provide all the functionality that is common to hierarchy
+    - derived classes override these function
+    - implement the interface in a concrete way that's specific to them
+- bass class's virtual member functions cannot do anything useful
+    - can be left empty
+    - show that they are not implemented here
+        - set function "= 0"
+            - shows it is an abstract base class
+- derived class must override all the pure virtual functions
+- cannot instantiate an abstract class
+    - will cause a compiler error
+- if a function takes a parent object argument by value, 
+    - all child class arguments will be treated as the parent
+    - will use the parent copy constructor
+- cannot pass abstract base class by value
+    - will not compile
