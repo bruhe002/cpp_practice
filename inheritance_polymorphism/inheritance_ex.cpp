@@ -11,7 +11,7 @@ using namespace std;
 
 class Parent {
 public:
-    void print() const {
+    virtual void print() const {
         cout << "This is a Parent.\n";
     }
 };
