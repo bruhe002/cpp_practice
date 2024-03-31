@@ -105,3 +105,27 @@ class Aeroplane : public Vehicle {
 
 - C++ almost always uses static typing
     - dynamic type is only used for a pointer or reference to a base class
+
+## Virtual Functions
+- Static Binding
+    - compiler will decide which function is called
+    - done using the static type of the object
+- Dynamic Binding
+    - code decides which function is called in an object
+    - two conditioons must apply 
+        - a member function is called through a pointer or reference to a base class
+        - member function was declared as "virtual" 
+    - a child class which implements a virtual function "overrides" it
+- virtual functions solve the problem with function call arguments
+- to override
+    - function must have the same signature as the parent
+- overloading a function disables dynamic binding
+    - may hide the parent's member function
+- C++11 introduced the "override" keyword
+    - tells compiler to check whether the member function overrides a 
+    virtual member function in the parent class
+    - `void draw() const override {...}`
+    - `void draw(int) const override {...}`
+- C++11 also introduced "final" keyword
+    - a class that cannot be derived from
+    - the leaf of the heirarchy
