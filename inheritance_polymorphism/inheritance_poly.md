@@ -129,3 +129,9 @@ class Aeroplane : public Vehicle {
 - C++11 also introduced "final" keyword
     - a class that cannot be derived from
     - the leaf of the heirarchy
+
+## Virtual Destructor
+- if a destructor is non virtual, static binding will be used
+    - only the static type destructor will be called
+- if it was virtual, the derived destructor is called, then the parent destructor
+- default contructors are NOT virtual
