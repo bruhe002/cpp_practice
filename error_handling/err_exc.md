@@ -83,3 +83,15 @@
         - log exception at a point where it happens
         - add extra information to the exception
         - convert the exception to a higher type
+
+## std::Exceptions SubClasses
+- bad_alloc: memory allocation errors
+- bad_cast: when dynamic_cast fails
+- out_of_range: out of range access
+- invalid_argument: argument type is not acceptable
+- domain_error: argument value is outside the domain
+- length error: length limit of object is exceeded
+- overflow_error
+- underflow_error
+- range_error
+- c++ do not use exceptions all that much due to overhead and speed
