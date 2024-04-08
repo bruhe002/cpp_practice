@@ -119,3 +119,27 @@
     - can override the what virtual member function
     - can have data members to store information
     - object should be lightweight
+
+## Throw() Exception Specifier
+- no-throw guarantee: no exceptions are thrown in an operation
+- `throw()` comes after the function's parameter list
+    - arguments list the exceptions that the function could throw
+    - list of exceptions is not checked by compiler
+        - list of exceptions is incorrect, the program may be terminated
+    - empty list means the functions does not throw any exceptions
+    - this was deprecated in C++11, and was completely removed in C++20
+        - replaced by `noexcept` keyword
+- `noexcept` works like throw()
+    - shows a function won't throw any exceptions
+    - provides a no-throw guarantee
+    - should be used whenever possible
+        - we are certain that a function will not throw any exceptions
+        - or we cannot do anything useful when a exception is thrown
+- a function must either be noexcept or not be noexcept
+- part of a function's type but not a part of the function's signature
+- it is inherited
+    - a child can add `noexcept` but cannot remove it 
+- compiler's assume destructors are noexcept
+- "swap()" functions is a noexcept function
+    - a generic function
+    - copies its arguments
