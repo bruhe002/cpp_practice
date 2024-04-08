@@ -65,3 +65,21 @@
     - no information about the error condition
     - does not capture other events
         - unix signals
+
+## Exception Mechanism
+- thrown object is copied into a special area of memory
+    - not part of normal stack
+    - set up by compiler
+    - any local variable in scope is destroyed
+    - program immediately leaves scope
+        - does not execute any further instructions
+- program will look for a suitable handler
+    - if it gets to main without finding one, program calls std::terminate()
+    - destroys local variables
+    - called "stack unwinding"
+- to "rethrow" an exception, use `throw` keyword with noargument
+    - will find another handler outside of current scope that can catch the rethrown exception
+    - this is useful
+        - log exception at a point where it happens
+        - add extra information to the exception
+        - convert the exception to a higher type
