@@ -95,3 +95,27 @@
 - underflow_error
 - range_error
 - c++ do not use exceptions all that much due to overhead and speed
+
+## Exceptions and Special Member Functions
+- when an exception is thrown, the destructor is called for all local variables
+- what happens when a destructor throws an exception
+    - if no catch block IN the destructor two stack unwinds could occur
+    - C++ will only assume one
+        - leads to undefined behavior
+- destructors should never throw exceptions
+    - exceptions should be handled IN the destructor
+    - destructors should also just release resources
+- constructors can throw an exception as well 
+    - it will destroy the partially created object and all data members
+    - exceptions should be handled by the caller
+    - constructors can also throw esceptions to report errors to the caller
+
+## Custom Exception Class
+- we can write our own Exception class
+- best to derive from on of the subclasses of exception
+- we do not derive directly from std::exception
+- class needs constructors which take a string
+    - needs copy constructor
+    - can override the what virtual member function
+    - can have data members to store information
+    - object should be lightweight
