@@ -33,3 +33,35 @@
     - throwing an exception takes longer than returning an error code
     - overhead from exceptions can be detrimental
     - some C++ coding stadards forbid exceptions
+
+## Exceptions
+- std::exception
+    - any type can be used for an exception object, including built-in types
+    - exception calss gives a consistent interface to exceptions
+    - std:exception is the base class of an inheritance hierarchy
+        - number of sub-classes
+        - function `what()` returns a C-style string describing the error
+
+## Try and Catch Blocks
+- "catch" can only come after "try"
+    - can have more than one catch block
+    - can add a catch block for each static type
+    - exception will be handled by the first catch block that can handle it
+- exception handler should take exception object by reference
+    - allows polymorphism to work
+- program maybe in an unstable state
+    - avoid allocating memory
+    - don't create new variables
+    - keep code short vary simple
+- nested try...catch blocks are allowed 
+
+## Catch-all handlers
+- we can write a catch handler with "..." that can handle any type of exception
+    - `catch(...)` can handle code at any exception
+- best to put a catch-all handler after all other catch blocks
+    - catching any exceptions that have been missed
+- Useful for testing your code
+    - not so much for debugging
+    - no information about the error condition
+    - does not capture other events
+        - unix signals
