@@ -24,3 +24,12 @@
     - large switch statement
     - do not work well with callback functions
     - C++ constructors cannot reurn an error code
+- C++ provides "exceptions"
+    - code which could cause a run-time error is put isnide its own scope
+    - programmer specifies the type of error it is to know how to solve it
+    - avoids a lot of tedious and error-prone coding
+    - exception objects can convey more information
+- exceptions do require extra code to be executed at run-time
+    - throwing an exception takes longer than returning an error code
+    - overhead from exceptions can be detrimental
+    - some C++ coding stadards forbid exceptions
