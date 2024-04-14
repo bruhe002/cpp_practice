@@ -77,4 +77,13 @@
     - temporary objects
     - lvalues
 
-    
+## Move operators
+- we can overload functions so that it behaves differently based on a move
+    - this is useful for copy constructor and assignment operator
+        - move constructor
+        - move assignment operator
+- move function arguments should not be set as 'const'
+- move operators should not throw exceptions 'noexcept'
+
+- when writing a move operator for a derived class, we should call the corresponding operator for the base class
+    - we must pass the argument as an rvalue
