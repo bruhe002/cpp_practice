@@ -127,3 +127,18 @@
     - Copy constructor
     - assignment operators
     - the 2 move operators
+
+- Rule of Zero
+    - if class does not need to declare a destructor, it does not need the copy operators either
+    - compiler-synthesized defaults will be sufficient
+- sometimes we need a destructor but do not want to copy
+    - implement destructor and two-move operators
+- possible to make an immoveable class
+    - objects cannot be passed to a function
+    - objects cannot be returned by a function
+    - to do this, delete the copy operators
+        - compiler will not synthesize the move operators
+        - any copy or move operation will fail
+- copy only classes
+    - delete the move operators
+    - compiler can still choose the best match
