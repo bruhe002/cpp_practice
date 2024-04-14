@@ -39,3 +39,30 @@
     - this requires that x has name and an address
         - ie x must be an lvalue
         - this is known as an "lvalue reference"
+- lvalue reference to rvalue
+    - we cannot bind an lvalue reference to an rvalue
+    - unless the type is a const reference
+
+```
+    int& x = 3; // Error!
+    const int& x = 3; // OK
+```
+
+- C++ has a concept of an "rvalue reference"
+    - this is a syntactic device which indicates that a function argument must be moveable rvalue
+    - the rvalue reference has '&&'
+
+```
+    void func(int&& x); // func's arguments is an rvalue reference
+
+    func(2); // Will compile
+
+    int y{2};
+    func(y); // will not compile
+    func(std::move(y)); // will compile
+```
+
+- `std::move()` will cast an argument into an rvalue
+    - this will move the argument's data into the function parameter
+    - y might not have a value or is unusable
+        - must reassign to use again
