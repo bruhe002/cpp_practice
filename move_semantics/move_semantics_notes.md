@@ -142,3 +142,50 @@
 - copy only classes
     - delete the move operators
     - compiler can still choose the best match
+
+## Function Arguments and Move Semantics
+- pass by value
+- pass by const reference
+- pass by non-const reference and pass by address
+- pass by move
+
+- if built in type or small objects by value: pass by value
+- pass larger objects by reference
+
+## Forwarding References
+- programmers cannot directly create a nested reference
+    - `int& & x = y;` leads to an error
+- however, the compiler can do this internally for a type alias or a template parameter
+
+```
+    int i{42};
+
+    using int_ref = int&;
+
+    int_ref j{i};
+    int_ref& rj{j};
+```
+- this is called "reference collapsing"
+
+- && has completely different behavior if the argument is generic
+
+```
+    template<typename T>
+    func(T&& x);
+```
+- x is now a forwarding reference
+    - it can be bound to an rvalue or an lvalue
+    - depends on what is passed to 'func'
+    - this allows us to write one function when we have a variable arguments
+
+## Perfect Forwarding
+- forwarding: a function that passes some or all of its arguments to another function
+- "prefect forwarding": properties of the passed objects are preserved
+    - if x is modifiable in f() then it is modifiable in g()
+- perfect forwarding is used to write functions which call constructors
+- the move() problem:
+    - the rvalue version of f() does not call the rvalue version of g()
+        - the problem is that inside f(), x ix an lvalue
+            - to call the rvalue version of g(), we need to cast it with std::move
+- forward() casts its argument to an rvalue reference
+    - std::forward<T>(x)
