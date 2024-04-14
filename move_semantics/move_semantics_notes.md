@@ -87,3 +87,43 @@
 
 - when writing a move operator for a derived class, we should call the corresponding operator for the base class
     - we must pass the argument as an rvalue
+
+## Move-only Types and RAII
+- to make a move-only class, implement the move operators and make the copy operators "deleted"
+
+```
+    class Test {
+    public:
+        Test(const Test&) = delete;     
+        Test& operator=(const Test&) = delete;
+        Test(Test&&) noexcept;
+        Test& operator=(Test&&) noexcept;
+    }
+```
+
+- C++ has some types which cannot be copied but can be moved
+    - fstream, iostream
+    - Classes used in multithreading
+    - smartpointer class
+- all follow the RAII idiom
+
+- C++14 has "generalized" lambda capture
+    - a variable in the outer scope can be moved into a lambda-local variable
+    - this allows capture by move
+
+## Special Member functions in C++11
+- move constructor
+- move assignment operator
+- a compiler will only synthesize a move operator if
+    - the class does not define a copy constructor, assignment operator or destructor
+    - Every data member of the class is either:
+        - built-in type
+        - user-defined type with move operators
+        - static data member(not moved)
+- if a class defines a move operator, both the copy operators will be synthesized as "deleted"
+- if a class needs a destructor, it probably needs a copy constructor and assignment operator
+- Rule of Five
+    - Destructor
+    - Copy constructor
+    - assignment operators
+    - the 2 move operators
