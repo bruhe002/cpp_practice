@@ -66,3 +66,15 @@
     - this will move the argument's data into the function parameter
     - y might not have a value or is unusable
         - must reassign to use again
+
+## Value Categories
+- lvalues persistent objects
+    - occupy memory which is accessible to the programmer
+- rvalues are stored in locations which are not accessible to the programmer
+    - process registers
+- C++17 have three categories
+    - literals
+    - temporary objects
+    - lvalues
+
+    
