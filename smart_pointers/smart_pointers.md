@@ -68,3 +68,29 @@
     - create a unique_ptr as a local variable
     - return the pointer from the function
     - caller's unique_ptr will automatically release the memory when it goes out of scope
+
+## Unique_ptrs and custom deleters
+- unique_ptr's destructor calls delete
+    - this will be bad if the pointer was not returned by new
+    - unique_ptrs can be created by passing an objects address, hence NO "new"
+- we can provde a "deleter"
+    - a callable object invoked by the deleter
+    - deleter releases the resource as appropriate
+- creat a lambda expression and use the type of the lambda as a second template parameter in the unique_ptr initialization
+    - use `decltype` function to find out the lambda type
+
+```
+    unique_ptr<Obj, decltype(lambda_f)>p(&obj, lambda_f);
+```
+
+## The Handle Body Pattern
+- splits classes into two parts
+- "handle" is an outer class that provides interface to clients
+- body is an inner class that provides the implementation
+- when client creates a Handle Object, the handle creates a Body Object
+- when a client calls a member function on the handle object, the call is forwarded to the body
+- have a header for the handle, and the body
+- clients include the Handle.h not Body.h
+- if the implementation details change, only Body.h is affected NOT the Handle
+- when making an update in the body.h, you can dynamically link the dll file into the executable
+
