@@ -156,3 +156,30 @@
 - shared_ptr has more overhead
 - only use a shared_ptr when needed
     - useful where different objects need to have access to the same area of heap memory
+
+## Weak Pointer
+- a non-smart pointer
+- provides a safe way of aliasing a shared-ptr
+- this avoids the problems with traditional pointers which can "dangle"
+- weak_ptr is bound to a shared_ptr object
+- does not affect reference count
+- cannot access the shared memory directly
+    - has to be converted back to a shared_ptr
+    - only allowed if the shared_ptr is valid
+- the lock() member function returns the shared_ptr if it is still valid
+    - returns nullptr otherwise
+    - we can also copy the weak_ptr  into a shared_ptr
+- applications
+    - cahce implementation
+        - data stored in shared_ptr objs
+        - chache holds weak_ptr to data
+        - use lock() to retrieve data
+        - original data returned if not expired
+            - otherwise need to fetch again
+- cycle prevention
+    - a parent and child object that have shared_ptrs to each other
+        - reference counter never hits zero
+        - resources are never released
+        - destructors never get called
+    - if we make son's ptr a weak_ptr,
+     the reference count can be zero
