@@ -115,4 +115,22 @@
 - could be used to write standard container classes
 
 ## Reference Counter
+- a technique for allowing different objects to share the same resource
+- an integer used to store the number of objects sharing the resource
+- initially zero
+- when bounded, the number is incremented
+- when unbounded, counter is decremented
+- the number is allocated on the heap
+- constructor allocates the counter
+- when an object is destroyed, we decrement the counter
+    - if counter is 0, "this" is the only remaining bound object
+    - should release it from memory
+- for an assignment operator
+    - `s2 = s1`: if s2 is bound to different memory, we must first unbind s2 from its memory
+        - decrement s2's counter
 
+- for move constructor, do not increment the counter
+    - add shallow copy of the counter pointer
+    - set the moved-from object's counter to null as well as the data pointer
+    - modify the rest of the code to check the counter before dereferencing it
+    - it just transfers the binding from one object to the other object
