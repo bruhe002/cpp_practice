@@ -94,3 +94,25 @@
 - if the implementation details change, only Body.h is affected NOT the Handle
 - when making an update in the body.h, you can dynamically link the dll file into the executable
 
+## The pImpl idiom
+- in the Handle-body pattern
+    - the handle has a private member which is a pointer to a body object
+    - "pointer to implementation" - pImpl
+    - also known as compiler firewall
+    - handle.h declares the body class but does not define it
+    - body object is allocated in the constructor
+    - the body object is released in the destructor
+    - need to consider the effects whether objects are copied or move
+- can use a unique pointer for pImpl
+- need to declare handle's destructor
+- Clients do not need to include Body.h
+- clients do not need to be modified if Body.h changes
+- implementation is kept secret from clients
+- requires extra memory
+- loading a shared library increases start up time
+- used in LARGE progects 
+- used in QT (popular graphics library)
+- could be used to write standard container classes
+
+## Reference Counter
+
