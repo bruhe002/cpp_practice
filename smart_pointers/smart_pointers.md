@@ -134,3 +134,25 @@
     - set the moved-from object's counter to null as well as the data pointer
     - modify the rest of the code to check the counter before dereferencing it
     - it just transfers the binding from one object to the other object
+
+## Shared Pointer
+- introduced in C++11
+- uses reference counting
+- allows differenet shared_ptr objects to share a memory allocation
+- has a private data member which points to allocated memory
+- other private member which points to control block
+    - control block contains the reference number
+- defined in <memory>
+- make_shared() is the function to allocate memory
+- can move a unique_ptr into a shared_ptr
+    - cannot go the other way arround
+    - if we use a new() call, that will be allocated separately, 
+        - its an extra call to new()
+        - control block might not be in sync with memory
+- when different threads copy or assign shared_ptr objects which use the same control block, this causes a data race
+- to prevent this, the reference counter is "atomic"
+    - operations on atomic variables are mush longer
+- unique_ptr has same overhead as traditional pointer
+- shared_ptr has more overhead
+- only use a shared_ptr when needed
+    - useful where different objects need to have access to the same area of heap memory
