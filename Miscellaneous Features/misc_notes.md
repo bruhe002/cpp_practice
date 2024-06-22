@@ -205,3 +205,35 @@
     - similar to virtual function overhead
 - should only be used when we need a polymorphic function object
 - for storing a callable object in a variable use "auto"
+
+## Member function pointers
+- we can define a pointer to a member function of a class
+- their use is more complicated than with function pointers
+    - requires a different syntax
+    - may need to provide the "this" pointer
+    - member function pointers cannot be called directly
+        - must be explicitly dereferenced
+
+    ```
+    class Test {
+        ...
+        void func(int a, const string& b);
+    };
+
+    // Define pfunc as a pointer to a member function of test
+    void (Test::*pfunc)(int, const string&);
+
+    // Make pfunc point to the member function
+    pfunc = &Test::func;  // The & is not optional here
+
+    // Make an object
+    Test test;
+
+    // access the pointer as a member of the object then we dereference it
+    (test.*pfunc)(42, "Hello"s);
+    ```
+
+- `std::mem_fn()` takes a member function pointer as argument and returns a callable object
+    - `auto f = mem_fn(pfunc);`
+    - to invoke, we need to pass the object to the function call
+        - `f(test, 42, "hello");`
