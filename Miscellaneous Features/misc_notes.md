@@ -119,4 +119,37 @@
 
     - can use tuples in constructor calls using function: make_from_tuple()
 
+## Unions
+- a union is a compound data structure
+    - each member of a union must have a distinct type
+    - all members are stored at the same address
+    - only one member can be in use at a time
+- main application of unions is processing data that can exist as more than one data type
+- all members of a union are public by default
+- unions can have member functions but not virtual member function
+- unions cannot be a base or derived class
+- only safe to read the member "in use" 
+    - members not in use are undefined
+- tagged union: 
+    - unions are highly error-prone
+        - programmer has to remember which type is in use
+    - unions can be made safer by adding a "tag" member
+    - this indicates which member is in use ( a tagged union )
+
+- a tagged union requires the programmer to check before accessing a member
+    - programmer must also set the type when bringing a member into use
+- for greater safety, wrap the tagged union inside a class
+    - union is a private member of the class
+    - can only be accessed through the class's public member functions
+    - these perform the safety checks necessary when working with unions
+- C++ std::variant ( defined in variant header )
+    - similar to a wrap tagged union but
+        - type safe
+        - can have different alternatives of the same type
+    - variant can deduce the type of argument that is assigned to it
+    - use `get()` function to grab an alternative
+        - can also get via index
+    - `std::holds_alternative()` checks to see if an alternative is in use
+    
+
     
