@@ -54,3 +54,25 @@
     - two time points can be subtracted and return a duration
     - `sleep_for()` function in the "threads" library which will pause an application based on the argument passed
     - in a single-threaded program, the main program will sleep
+
+## Bitsets
+- library `<bitset>`
+    - an abstraction which represents a group of bits
+    - std::bitset is a timplated type
+    - the parameter is the number of bits 
+```
+    bitset<8> b1{"10101110"};
+    bitset<8> b2{0x05};
+```
+
+- bitsets can be used in streams
+- has a size() member function
+- can use subscript notation to grab a bit
+- test() accesses a bit with bounds checking
+- bit member functions
+    - set(idx, true | false)
+    - reset() // sets all bits to false
+    - flip() inverts all bits
+    - all() returns true if all bits are set
+    - any() returns true if at least one bit is true
+    - none return true of no bits are set
