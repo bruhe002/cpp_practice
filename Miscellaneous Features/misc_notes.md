@@ -183,4 +183,25 @@
         - can put arguments in a different order
         - this is called "Argument forwarding"
     - this is equivalent to a c++14 lambda which creates a local variable
-    
+
+## Callable Objects
+- a callable object supports the () operator
+    - pointer to non-member function
+    - functors
+    - lambda expressions
+    - objects returned from calling bind
+- sometimes we want to work with different callable objects which have the same signature
+- C++ has a `std::function` in `function` library
+    - the class has a private member which can store a callable object
+    - template class
+        - object's signature is a parameter
+    - std::function performs "type_erasure"
+- we can declare as function argument as type std::function
+- we can create a container whose elements are of type std::function
+- function prototype must match the template parameter
+    - does not support overloading
+- run-time overhead
+- invoking the callable object involves indirection
+    - similar to virtual function overhead
+- should only be used when we need a polymorphic function object
+- for storing a callable object in a variable use "auto"
