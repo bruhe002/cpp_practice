@@ -237,3 +237,50 @@
     - `auto f = mem_fn(pfunc);`
     - to invoke, we need to pass the object to the function call
         - `f(test, 42, "hello");`
+
+## Interfacing to C
+- many interfaces are written in C
+    - operating system API
+    - Database API
+    - Third Party libraries and frameworks
+    - languages with "foreign function" interfaces
+- C is almost a complete subset of C++
+    - almost any C program is legal in C++
+- always simple to compile the entire program's source code in a c++ compiler
+    - this might not always work though
+- interfacing with C at the binary level requires 
+    - a header file which declares the function in the C interface
+    - the compiled binary code for the funtions
+    - this can be an object file, a static library or a DLL/shared object
+- the C and C++ compiler used must be compatible
+    - same object file format
+    - same function call conventions
+    - same word size
+- if any C++ features are used, use a C++ compile
+- Name Mangling
+    - in C, a function has the same name in the binary object file as it does in the source code
+    - in C++, the compiler "mangles" the name
+    - required to support function overloading
+    - does not occur in C
+    - to make C++ binaries compatible with C, we use the `extern "C"` directive
+        - tells the C++ compiler not to mangle the function name
+
+- Exporting to C
+    - when writing a C++ function that will be called from C
+        - use bult-in types only in the interface
+        - can only use arrays and pointers to built-in types
+        - or structs which have members of built-in types only
+        - place functions in the global namespaces
+            - C has no concept of namespaces
+
+- conditional compilation
+    - interface header will be processed both as C and C++
+    - it may contain some things which are not valid C
+    - we can use the __cplusplus preprocessor symbol
+        - defined by C++ compilers but not by C compilers
+    - use a conditional compilation to hide things from the C compiler
+
+- resource management
+    - C uses malloc and free
+    - C uses raw pointers for resource management
+        - no destructors, no RAII, no smart pointers
