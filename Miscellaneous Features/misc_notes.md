@@ -284,3 +284,8 @@
     - C uses malloc and free
     - C uses raw pointers for resource management
         - no destructors, no RAII, no smart pointers
+
+- converting sequential containers to arrays
+    - string and vector have a `data()` member function
+    - returns a pointer to the container's internal memory buffer
+        - can be used as a built-in array
