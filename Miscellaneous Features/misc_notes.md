@@ -150,6 +150,27 @@
     - use `get()` function to grab an alternative
         - can also get via index
     - `std::holds_alternative()` checks to see if an alternative is in use
-    
 
+## Mathematical Types
+- `std::valarray`
+    - vector like type based on FORTRAN arrays
+    - Fixed size
+    - easier syntax for numerical operations
+    - Not widely used
+        - poorly designed
+        - compiler implementers not interested in optimizing it
+        - better to use a third-party library (Eigen, Blaze, Armadillo)
+- `<complex>`
+    - templated type
+    - parameters can be float, double or long double
+        - first parameter is the real number
+        - second one is the imaginary number
+    - can do mathematical operations and logical operators
+    - literal suffix i, which makes a double imaginary
+    - non member functions
+        - abs()
+        - arg()
+        - exp()
+        - pow()
+        - conj()
     
