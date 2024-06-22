@@ -173,4 +173,14 @@
         - exp()
         - pow()
         - conj()
+
+## Bind
+- bind() takes a callable object as its first argument
+    - bind() performst a partial function call
+    - it "binds" the remaining arguments to this object and returns a new callable
+    - can allow multiple arguments to bind to the function
+        - use placeholders _1, _2, ... to know thier argument position
+        - can put arguments in a different order
+        - this is called "Argument forwarding"
+    - this is equivalent to a c++14 lambda which creates a local variable
     
