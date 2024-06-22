@@ -76,3 +76,47 @@
     - all() returns true if all bits are set
     - any() returns true if at least one bit is true
     - none return true of no bits are set
+
+## Tuples
+- pair is a compound type
+    - two members of any type: first and second
+    - can create explicitly or with function "make_pair"
+- tuples are in the `tuple` library
+    - similar to pairs but can have a fixed number of elements
+        - we can use a "make_tuple" function to create one
+    - to access members we use the templated `std::get()` function
+        - use the element's index as the template parameter
+        - `auto x = get<0>(numbers)`
+- unpacking a tuple
+    - `std::tie` function unpacks all the elements in a tuple ina variable
+
+```
+    double d;
+    int i;
+    string s;
+
+    std::tie(d, i, s) = numbers;
+```
+
+- use tuples if we want to store data in the short term that
+    - doesnt need a member function
+    - isnt important enough to merit making a new type
+    - has elements of different types
+- traditionally we would use a struct to return multiple values from a function call
+    - tuples requires much less code when returning multiple values
+
+- tuples in c++17
+    - constructor template argument deduction
+        - `tuple tup{1, 1.2, "hello"};`
+    - structured binding can be used to unpack tuples
+        - `auto [d, i, str] = func();`
+    - function `apply()` unpacks the elements to acts as arguments of a function
+
+    ```
+        void func(int, double, string);
+        apply(func, tuple(1, 2.0, "three"s));
+    ```
+
+    - can use tuples in constructor calls using function: make_from_tuple()
+
+    
