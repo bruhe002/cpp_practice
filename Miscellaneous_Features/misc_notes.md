@@ -315,3 +315,23 @@
         - should only use rarely
         - misused to avoid writing virtual functions
         - one legitimate use is for calling a member function that only exists in the Derived Class
+
+## Multiple Inheritance
+- a derived class has more than one parent
+- very controversial
+    - adds complexity
+    - very disliked
+    - some languages does not support
+- can be useful for writing "mix-in" classes
+- a derived class is a combination of different entities
+    - ex: a mouse class: needs to be UI responsive and talk to the hardware
+    ```
+    class Mouse: public HardwareDevice, TouchResponder {...};
+    ```
+    - base class objects are stored in the order they were listed with the derived class following
+    - derived class inherits the members of all parents
+    - if we call an inherited member function, its name must only be defined in one parent
+        - IF IN BOTH, THIS CREATES AMBIGUITY
+        - to avoid, adda forwarding function to the child
+
+        
