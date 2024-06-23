@@ -10,7 +10,7 @@
 #include <algorithm>
 
 extern "C" {
-    #include "c_arr.h"
+#include "c_arr.h"
 }
 
 void printSet() {
@@ -24,9 +24,11 @@ void printSet() {
 }
 
 void printMap() {
-    int even_ints[] = {2,4,6,8};
-    std::map<int,int> my_map(even_ints, even_ints+5);
-
+    std::map<int,int> my_map;
+    my_map[1] = 2;
+    my_map[2] = 4;
+    my_map[3] = 6;
+    my_map[4] = 8;
     std::vector<int> keys;
     std::vector<int> values;
 

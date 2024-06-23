@@ -289,3 +289,7 @@
     - string and vector have a `data()` member function
     - returns a pointer to the container's internal memory buffer
         - can be used as a built-in array
+
+## FROM EXERCISE:
+- create object of the C file first
+- compile the C++ file with the newly created object file
