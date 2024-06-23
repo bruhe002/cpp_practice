@@ -43,7 +43,11 @@ void printMap() {
 }
 
 int main() {
-    
+    // Print the sets
+    printSet();
+
+    // Print the map
+    printMap();
 
     return 0;
 }
