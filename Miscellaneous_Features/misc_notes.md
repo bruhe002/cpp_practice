@@ -293,3 +293,25 @@
 ## FROM EXERCISE:
 - create object of the C file first
 - compile the C++ file with the newly created object file
+
+## Run-Time Type information
+- (RTTI) for short relates to dynamic type of the object
+    - typeid
+        - a function that returns information about the dynamic type of its argument
+        - defined in `<typeinfo>` used in comparisons
+            - can check if a certain pointer matches to a particular identifier
+            - great for derived classes
+    - type_info
+        - defined in `typeinfo` header
+        - it contains information on the dynamic type of an object
+        - `name()` returns a C-style string of the type
+            - unique for each type
+        - `hash_code` returns a unique number for each dynamic type
+    - dynamic_cast
+        - converts pointer to Base to a pointer to Derived
+        - allows us to check at runtime whether a Base-to-Derived conversion is possible
+        - only works if the dynamic type of the base object is Derived
+            - if it fails, returns a nullptr
+        - should only use rarely
+        - misused to avoid writing virtual functions
+        - one legitimate use is for calling a member function that only exists in the Derived Class
