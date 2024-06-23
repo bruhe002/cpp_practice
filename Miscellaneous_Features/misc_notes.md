@@ -334,4 +334,7 @@
         - IF IN BOTH, THIS CREATES AMBIGUITY
         - to avoid, adda forwarding function to the child
 
-        
+## Virtual Inheritance
+- `class SalesEmployee : public virtual Employee {...};`
+- a technique that ensures only one copy of a base class's member variables are inherited by grandchild derived classes
+- if A is the parent class of B and C, and D inherits from both B and C then D will have two copies of A's member variables
