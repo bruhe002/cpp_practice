@@ -348,3 +348,27 @@
     - when a new version is released, we make that namespace inline and change the previous version to a nested namespace
 
 ## Attributes
+- various implementation-dependent compiler directives
+    - #pragma
+    - __attribute
+    - __declspec
+
+- attributes give extra information to the compiler
+- they should not be used to extend the language or change the meaning of the program
+- attribute syntax
+    - an attribute goes inside a pair of double brackets
+        - `[[ noreturn ]]`
+    - in declarations, attributes go before the entity they apply to
+        - `[[ noreturn ]] void server();`
+    - attributes can be in a namespace
+    - attributes can take arguments
+- "[[ noreturn ]] indicates that a function does not return
+- `alignas` keyword is used for memory alignment
+- `[[ deprecated ]]` gives a compiler warning if the object is used
+    - takes an argument to explain why it was deprecated
+- `[[fallthrough]]` attribute indicates a break statement is intentionally omitted
+- `[[nosdiscard]]` the compiler will give a warning if a nodiscard function is called and its return value is ignored
+- `[[maybe_unused]]` removes warning if a variable is unused
+- attributes can also be used with variables, types and structs/classes
+    - for struct, classes and enums, the attribute goes behind the name
+
