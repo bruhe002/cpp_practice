@@ -338,3 +338,13 @@
 - `class SalesEmployee : public virtual Employee {...};`
 - a technique that ensures only one copy of a base class's member variables are inherited by grandchild derived classes
 - if A is the parent class of B and C, and D inherits from both B and C then D will have two copies of A's member variables
+
+## Inline Namespaces
+- any symbols defined in an inline namespace can be used without scope labels
+- useful for developing applications and using different version of code
+    - we work in a product namespace
+    - we put the current version of the code  in an inline namespace
+    - without any scope operators, we get the current version of the code
+    - when a new version is released, we make that namespace inline and change the previous version to a nested namespace
+
+## Attributes
