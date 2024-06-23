@@ -10,7 +10,7 @@
 #include <algorithm>
 
 extern "C" {
-    #include "c_arr.c"
+    #include "c_arr.h"
 }
 
 void printSet() {
